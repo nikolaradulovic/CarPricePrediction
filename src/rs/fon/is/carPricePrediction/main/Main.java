@@ -1,4 +1,7 @@
-package rs.fon.is.carPricePrediction;
+package rs.fon.is.carPricePrediction.main;
+
+import rs.fon.is.carPricePrediction.parser.DataSorter;
+import rs.fon.is.carPricePrediction.parser.HTMLParser;
 
 import java.io.FileNotFoundException;
 
@@ -20,9 +23,9 @@ public class Main {
 
         DataSorter ds = new DataSorter();
         int[][] matrix = ds.loadDataFromFile("data/unsortedData.txt");
-        int[][] roatedMatrix = ds.rotateMatrix(matrix);
+        int[][] rotatedMatrix = ds.rotateMatrix(matrix);
 
-        ds.writeInFile(roatedMatrix);
+        ds.writeInFile(rotatedMatrix);
 
         System.out.println("Podaci su uspesno upisani");
 

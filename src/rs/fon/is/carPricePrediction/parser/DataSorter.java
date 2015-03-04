@@ -1,4 +1,4 @@
-package rs.fon.is.carPricePrediction;
+package rs.fon.is.carPricePrediction.parser;
 
 import java.io.File;
 import java.io.FileNotFoundException;

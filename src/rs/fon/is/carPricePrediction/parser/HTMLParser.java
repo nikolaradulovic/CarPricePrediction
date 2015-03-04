@@ -1,4 +1,4 @@
-package rs.fon.is.carPricePrediction;
+package rs.fon.is.carPricePrediction.parser;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

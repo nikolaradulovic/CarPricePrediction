@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
 /**
  * Created by Nikola on 3/4/2015.
  */
@@ -17,9 +18,12 @@ public class HTMLParser {
     private Document document;
     private String link;
 
+
     public HTMLParser(String link){
         this.link = link;
     }
+
+    public HTMLParser(){};
 
     public int calculateNumberOfPages(){
 
@@ -61,7 +65,11 @@ public class HTMLParser {
                     String carKm = e.text();
                     if(carKm != null && carKm.length() >= 2){
                         String kmFinal = carKm.replace(".","");
+                        //String kmSubstringed = kmFinal.substring(0,kmFinal.length()-2);
+                        //double kmNormalized = Double.parseDouble(kmSubstringed)/300000;
                         km+= kmFinal.substring(0, kmFinal.length() -2);
+                        // km+= round(kmNormalized, 2);
+                         //System.out.println(round(kmNormalized,2));
                     }
                 }
 
@@ -183,6 +191,17 @@ public class HTMLParser {
 
         }
 
+
+
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 
 }

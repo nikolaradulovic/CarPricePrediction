@@ -33,7 +33,11 @@ public class DataSorter {
         while (in.hasNextLine()) {
             String[] currentLine = in.nextLine().trim().split(" ");
             for (int i = 0; i < currentLine.length; i++) {
-                matrix[lineCount][i] = Integer.parseInt(currentLine[i]);
+                try{
+                matrix[lineCount][i] = Integer.parseInt(currentLine[i]);}
+                catch (Exception ex){
+                   ex.printStackTrace();
+                }
             }
             lineCount++;
 

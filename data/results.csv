@@ -1,0 +1,454 @@
+
+ Linear Regression without standardization 
+
+
+Linear Regression Model
+
+Price =
+
+     -0.0055 * Kilometres +
+    764.5329 * Year +
+     87.3719 * HorsePower +
+   4416.1832 * Gear +
+-1532082.5221
+
+ Linear Regression with standardization 
+
+FilteredClassifier using weka.classifiers.functions.LinearRegression -S 0 -C -R 1.0E-8 on data filtered through weka.filters.unsupervised.attribute.Standardize 
+
+Filtered Header
+@relation MeganDataSet-weka.filters.unsupervised.attribute.Standardize
+
+@attribute Kilometres numeric
+@attribute Price numeric
+@attribute Year numeric
+@attribute HorsePower numeric
+@attribute Fuel numeric
+@attribute AirCondition numeric
+@attribute NumOfDoors numeric
+@attribute Gear numeric
+
+@data
+
+
+Classifier Model
+
+Linear Regression Model
+
+Price =
+
+   -790.1959 * Kilometres +
+   4864.8922 * Year +
+   3242.6144 * HorsePower +
+   1984.3183 * Gear +
+   9254.8417
+
+ Model tree without standardization 
+
+M5 pruned model tree:
+(using smoothed linear models)
+
+Year <= 2006.5 : 
+|   Year <= 2003.5 : 
+|   |   Year <= 1995.5 : 
+|   |   |   Kilometres <= 185000 : LM1 (38/6.776%)
+|   |   |   Kilometres >  185000 : 
+|   |   |   |   HorsePower <= 107.5 : LM2 (101/4.267%)
+|   |   |   |   HorsePower >  107.5 : LM3 (36/5.591%)
+|   |   Year >  1995.5 : 
+|   |   |   HorsePower <= 107.5 : LM4 (269/6.755%)
+|   |   |   HorsePower >  107.5 : 
+|   |   |   |   HorsePower <= 132.5 : LM5 (152/7.943%)
+|   |   |   |   HorsePower >  132.5 : LM6 (50/41.414%)
+|   Year >  2003.5 : 
+|   |   HorsePower <= 152.5 : LM7 (175/14.825%)
+|   |   HorsePower >  152.5 : 
+|   |   |   HorsePower <= 183.5 : LM8 (34/18.535%)
+|   |   |   HorsePower >  183.5 : 
+|   |   |   |   NumOfDoors <= 0.5 : LM9 (6/16.611%)
+|   |   |   |   NumOfDoors >  0.5 : LM10 (7/15.264%)
+Year >  2006.5 : 
+|   HorsePower <= 132.5 : LM11 (120/27.367%)
+|   HorsePower >  132.5 : 
+|   |   Kilometres <= 78750 : 
+|   |   |   Year <= 2013.5 : LM12 (23/78.45%)
+|   |   |   Year >  2013.5 : LM13 (11/88.551%)
+|   |   Kilometres >  78750 : 
+|   |   |   Year <= 2008.5 : 
+|   |   |   |   HorsePower <= 171.5 : LM14 (17/20.689%)
+|   |   |   |   HorsePower >  171.5 : LM15 (29/48.847%)
+|   |   |   Year >  2008.5 : 
+|   |   |   |   HorsePower <= 137.5 : LM16 (41/35.04%)
+|   |   |   |   HorsePower >  137.5 : 
+|   |   |   |   |   HorsePower <= 200 : LM17 (28/51.405%)
+|   |   |   |   |   HorsePower >  200 : LM18 (19/47.632%)
+
+LM num: 1
+Price = 
+	0.0035 * Kilometres 
+	+ 44.8659 * Year 
+	+ 12.0072 * HorsePower 
+	- 43.6594 * Fuel 
+	- 819.2471 * NumOfDoors 
+	+ 131.166 * Gear 
+	- 88584.2101
+
+LM num: 2
+Price = 
+	-0.0002 * Kilometres 
+	+ 39.5931 * Year 
+	+ 6.1578 * HorsePower 
+	- 15.2233 * Fuel 
+	- 66.8855 * NumOfDoors 
+	+ 131.166 * Gear 
+	- 78133.8971
+
+LM num: 3
+Price = 
+	-0.0002 * Kilometres 
+	+ 39.5931 * Year 
+	+ 18.9072 * HorsePower 
+	- 15.2233 * Fuel 
+	- 66.8855 * NumOfDoors 
+	+ 131.166 * Gear 
+	- 79486.783
+
+LM num: 4
+Price = 
+	-0.0003 * Kilometres 
+	+ 415.4479 * Year 
+	+ 12.2631 * HorsePower 
+	+ 292.4931 * NumOfDoors 
+	+ 108.8936 * Gear 
+	- 828799.6112
+
+LM num: 5
+Price = 
+	-0.0011 * Kilometres 
+	+ 370.6285 * Year 
+	+ 9.8993 * HorsePower 
+	- 25.5748 * NumOfDoors 
+	+ 157.6438 * Gear 
+	- 738396.2694
+
+LM num: 6
+Price = 
+	-0.0163 * Kilometres 
+	+ 116.8575 * Year 
+	+ 56.2493 * HorsePower 
+	- 25.5748 * NumOfDoors 
+	+ 2027.1048 * Gear 
+	- 234173.4786
+
+LM num: 7
+Price = 
+	-0.005 * Kilometres 
+	+ 1304.2828 * Year 
+	+ 54.7922 * HorsePower 
+	- 140.4239 * NumOfDoors 
+	+ 129.6212 * Gear 
+	- 2612314.9536
+
+LM num: 8
+Price = 
+	-0.0054 * Kilometres 
+	+ 754.6866 * Year 
+	+ 27.4296 * HorsePower 
+	- 1261.9 * NumOfDoors 
+	+ 129.6212 * Gear 
+	- 1504989.6779
+
+LM num: 9
+Price = 
+	-0.032 * Kilometres 
+	+ 125.3605 * Year 
+	+ 35.3961 * HorsePower 
+	- 3165.7804 * NumOfDoors 
+	+ 129.6212 * Gear 
+	- 237165.313
+
+LM num: 10
+Price = 
+	-0.0213 * Kilometres 
+	+ 310.8006 * Year 
+	+ 35.3961 * HorsePower 
+	- 3110.7175 * NumOfDoors 
+	+ 129.6212 * Gear 
+	- 611129.4357
+
+LM num: 11
+Price = 
+	-0.0107 * Kilometres 
+	+ 2353.835 * Year 
+	+ 109.7489 * HorsePower 
+	+ 1184.4854 * Fuel 
+	+ 1745.134 * Gear 
+	- 4726349.5289
+
+LM num: 12
+Price = 
+	-0.0133 * Kilometres 
+	+ 4402.547 * Year 
+	+ 170.815 * HorsePower 
+	+ 2110.1379 * Gear 
+	- 8848289.4396
+
+LM num: 13
+Price = 
+	-0.0133 * Kilometres 
+	+ 903.7169 * Year 
+	+ 319.3096 * HorsePower 
+	+ 2110.1379 * Gear 
+	- 1819583.4389
+
+LM num: 14
+Price = 
+	-0.0166 * Kilometres 
+	+ 2280.6917 * Year 
+	+ 75.1388 * HorsePower 
+	- 403.3541 * Fuel 
+	+ 2138.5624 * Gear 
+	- 4572106.7661
+
+LM num: 15
+Price = 
+	-0.0103 * Kilometres 
+	+ 3881.4783 * Year 
+	+ 70.8178 * HorsePower 
+	- 403.3541 * Fuel 
+	+ 2138.5624 * Gear 
+	- 7783866.3891
+
+LM num: 16
+Price = 
+	-0.0141 * Kilometres 
+	+ 2732.7921 * Year 
+	+ 77.3869 * HorsePower 
+	- 1074.8349 * Fuel 
+	+ 5367.2884 * Gear 
+	- 5483963.3123
+
+LM num: 17
+Price = 
+	-0.0382 * Kilometres 
+	+ 1246.7124 * Year 
+	+ 92.2871 * HorsePower 
+	- 4364.6923 * Fuel 
+	+ 2668.413 * Gear 
+	- 2488076.5115
+
+LM num: 18
+Price = 
+	-0.0212 * Kilometres 
+	+ 2079.3998 * Year 
+	+ 96.9884 * HorsePower 
+	- 5471.643 * Fuel 
+	+ 2668.413 * Gear 
+	- 4162323.753
+
+Number of Rules : 18
+
+ Model tree with standardization 
+
+M5 pruned model tree:
+(using smoothed linear models)
+
+Year <= 0.666 : 
+|   Year <= 0.195 : 
+|   |   Year <= -1.062 : 
+|   |   |   Kilometres <= -0.053 : LM1 (38/6.776%)
+|   |   |   Kilometres >  -0.053 : 
+|   |   |   |   HorsePower <= -0.3 : LM2 (101/4.267%)
+|   |   |   |   HorsePower >  -0.3 : LM3 (36/5.591%)
+|   |   Year >  -1.062 : 
+|   |   |   HorsePower <= -0.3 : LM4 (269/6.755%)
+|   |   |   HorsePower >  -0.3 : 
+|   |   |   |   HorsePower <= 0.373 : LM5 (152/7.943%)
+|   |   |   |   HorsePower >  0.373 : LM6 (50/41.414%)
+|   Year >  0.195 : 
+|   |   HorsePower <= 0.912 : LM7 (175/14.825%)
+|   |   HorsePower >  0.912 : 
+|   |   |   HorsePower <= 1.747 : LM8 (34/18.535%)
+|   |   |   HorsePower >  1.747 : 
+|   |   |   |   NumOfDoors <= -1.233 : LM9 (6/16.611%)
+|   |   |   |   NumOfDoors >  -1.233 : LM10 (7/15.264%)
+Year >  0.666 : 
+|   HorsePower <= 0.373 : LM11 (120/27.367%)
+|   HorsePower >  0.373 : 
+|   |   Kilometres <= -0.794 : 
+|   |   |   Year <= 1.766 : LM12 (23/78.45%)
+|   |   |   Year >  1.766 : LM13 (11/88.551%)
+|   |   Kilometres >  -0.794 : 
+|   |   |   Year <= 0.981 : 
+|   |   |   |   HorsePower <= 1.424 : LM14 (17/20.689%)
+|   |   |   |   HorsePower >  1.424 : LM15 (29/48.847%)
+|   |   |   Year >  0.981 : 
+|   |   |   |   HorsePower <= 0.508 : LM16 (41/35.04%)
+|   |   |   |   HorsePower >  0.508 : 
+|   |   |   |   |   HorsePower <= 2.192 : LM17 (28/51.405%)
+|   |   |   |   |   HorsePower >  2.192 : LM18 (19/47.632%)
+
+LM num: 1
+Price = 
+	496.0381 * Kilometres 
+	+ 285.4915 * Year 
+	+ 445.622 * HorsePower 
+	- 16.3564 * Fuel 
+	- 258.0626 * NumOfDoors 
+	+ 58.9366 * Gear 
+	+ 2641.3155
+
+LM num: 2
+Price = 
+	-22.6982 * Kilometres 
+	+ 251.9393 * Year 
+	+ 228.5328 * HorsePower 
+	- 5.7032 * Fuel 
+	- 21.0689 * NumOfDoors 
+	+ 58.9366 * Gear 
+	+ 1816.6198
+
+LM num: 3
+Price = 
+	-26.6747 * Kilometres 
+	+ 251.9393 * Year 
+	+ 701.6976 * HorsePower 
+	- 5.7032 * Fuel 
+	- 21.0689 * NumOfDoors 
+	+ 58.9366 * Gear 
+	+ 1971.1144
+
+LM num: 4
+Price = 
+	-42.8849 * Kilometres 
+	+ 2643.5872 * Year 
+	+ 455.1175 * HorsePower 
+	+ 92.1352 * NumOfDoors 
+	+ 48.929 * Gear 
+	+ 4723.158
+
+LM num: 5
+Price = 
+	-155.5166 * Kilometres 
+	+ 2358.3912 * Year 
+	+ 367.3921 * HorsePower 
+	- 8.0561 * NumOfDoors 
+	+ 70.8339 * Gear 
+	+ 4685.7
+
+LM num: 6
+Price = 
+	-2337.3311 * Kilometres 
+	+ 743.5901 * Year 
+	+ 2087.5666 * HorsePower 
+	- 8.0561 * NumOfDoors 
+	+ 910.8366 * Gear 
+	+ 3886.3849
+
+LM num: 7
+Price = 
+	-722.3458 * Kilometres 
+	+ 8299.44 * Year 
+	+ 2033.4893 * HorsePower 
+	- 44.2335 * NumOfDoors 
+	+ 58.2426 * Gear 
+	+ 4641.4844
+
+LM num: 8
+Price = 
+	-778.9736 * Kilometres 
+	+ 4802.2375 * Year 
+	+ 1017.9889 * HorsePower 
+	- 397.4981 * NumOfDoors 
+	+ 58.2426 * Gear 
+	+ 7213.0511
+
+LM num: 9
+Price = 
+	-4592.9129 * Kilometres 
+	+ 797.6968 * Year 
+	+ 1313.6478 * HorsePower 
+	- 997.2199 * NumOfDoors 
+	+ 58.2426 * Gear 
+	+ 9095.0695
+
+LM num: 10
+Price = 
+	-3052.4845 * Kilometres 
+	+ 1977.6929 * Year 
+	+ 1313.6478 * HorsePower 
+	- 979.8751 * NumOfDoors 
+	+ 58.2426 * Gear 
+	+ 8547.7362
+
+LM num: 11
+Price = 
+	-1531.952 * Kilometres 
+	+ 14977.9727 * Year 
+	+ 4073.0877 * HorsePower 
+	+ 443.7505 * Fuel 
+	+ 784.139 * Gear 
+	- 1705.5401
+
+LM num: 12
+Price = 
+	-1909.6689 * Kilometres 
+	+ 28014.3808 * Year 
+	+ 6339.4197 * HorsePower 
+	+ 948.1457 * Gear 
+	- 14949.6727
+
+LM num: 13
+Price = 
+	-1909.6689 * Kilometres 
+	+ 5750.5508 * Year 
+	+ 11850.4663 * HorsePower 
+	+ 948.1457 * Gear 
+	+ 25806.4323
+
+LM num: 14
+Price = 
+	-2376.0142 * Kilometres 
+	+ 14512.5459 * Year 
+	+ 2788.6108 * HorsePower 
+	- 151.1108 * Fuel 
+	+ 960.9177 * Gear 
+	+ 687.8148
+
+LM num: 15
+Price = 
+	-1484.296 * Kilometres 
+	+ 24698.7055 * Year 
+	+ 2628.2442 * HorsePower 
+	- 151.1108 * Fuel 
+	+ 960.9177 * Gear 
+	- 5195.38
+
+LM num: 16
+Price = 
+	-2024.2933 * Kilometres 
+	+ 17389.3605 * Year 
+	+ 2872.0426 * HorsePower 
+	- 402.6715 * Fuel 
+	+ 2411.6773 * Gear 
+	- 4415.3856
+
+LM num: 17
+Price = 
+	-5478.6625 * Kilometres 
+	+ 7933.1065 * Year 
+	+ 3425.0321 * HorsePower 
+	- 1635.1693 * Fuel 
+	+ 1198.9948 * Gear 
+	+ 11770.7305
+
+LM num: 18
+Price = 
+	-3035.2122 * Kilometres 
+	+ 13231.6807 * Year 
+	+ 3599.5083 * HorsePower 
+	- 2049.8725 * Fuel 
+	+ 1198.9948 * Gear 
+	+ 8432.7625
+
+Number of Rules : 18

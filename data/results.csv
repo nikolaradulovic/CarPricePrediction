@@ -1,23 +1,28 @@
 
- Linear Regression without standardization 
+ Linear Regression with car model 
 
 
 Linear Regression Model
 
 Price =
 
-     -0.0055 * Kilometres +
-    764.5329 * Year +
-     87.3719 * HorsePower +
-   4416.1832 * Gear +
--1532082.5221
+36705525.8455 * Model=Clio,Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur +
+-26162766.88 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur +
+13920150.0808 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur +
+52691759.4631 * Model=Twingo,Safrane,Captur +
+109213017.7367 * Model=Safrane,Captur +
+    -99.8907 * Kilometres +
+ 441097.7072 * HorsePower +
+-11303599.5545 * Fuel +
+19584363.2799 * NumOfDoors +
+-26816195.8001
 
- Linear Regression with standardization 
+ Linear Regression without car model 
 
-FilteredClassifier using weka.classifiers.functions.LinearRegression -S 0 -C -R 1.0E-8 on data filtered through weka.filters.unsupervised.attribute.Standardize 
+FilteredClassifier using weka.classifiers.functions.LinearRegression -S 0 -C -R 1.0E-8 on data filtered through weka.filters.unsupervised.attribute.Remove -R 1
 
 Filtered Header
-@relation MeganDataSet-weka.filters.unsupervised.attribute.Standardize
+@relation RenaultDataSet-weka.filters.unsupervised.attribute.Remove-R1
 
 @attribute Kilometres numeric
 @attribute Price numeric
@@ -37,418 +42,334 @@ Linear Regression Model
 
 Price =
 
-   -790.1959 * Kilometres +
-   4864.8922 * Year +
-   3242.6144 * HorsePower +
-   1984.3183 * Gear +
-   9254.8417
+   -110.5555 * Kilometres +
+ 380371.1006 * HorsePower +
+-11457013.2629 * Fuel +
+22988254.5035
 
- Model tree without standardization 
+ SMO with car model 
 
-M5 pruned model tree:
-(using smoothed linear models)
+SMOreg
 
-Year <= 2006.5 : 
-|   Year <= 2003.5 : 
-|   |   Year <= 1995.5 : 
-|   |   |   Kilometres <= 185000 : LM1 (38/6.776%)
-|   |   |   Kilometres >  185000 : 
-|   |   |   |   HorsePower <= 107.5 : LM2 (101/4.267%)
-|   |   |   |   HorsePower >  107.5 : LM3 (36/5.591%)
-|   |   Year >  1995.5 : 
-|   |   |   HorsePower <= 107.5 : LM4 (269/6.755%)
-|   |   |   HorsePower >  107.5 : 
-|   |   |   |   HorsePower <= 132.5 : LM5 (152/7.943%)
-|   |   |   |   HorsePower >  132.5 : LM6 (50/41.414%)
-|   Year >  2003.5 : 
-|   |   HorsePower <= 152.5 : LM7 (175/14.825%)
-|   |   HorsePower >  152.5 : 
-|   |   |   HorsePower <= 183.5 : LM8 (34/18.535%)
-|   |   |   HorsePower >  183.5 : 
-|   |   |   |   NumOfDoors <= 0.5 : LM9 (6/16.611%)
-|   |   |   |   NumOfDoors >  0.5 : LM10 (7/15.264%)
-Year >  2006.5 : 
-|   HorsePower <= 132.5 : LM11 (120/27.367%)
-|   HorsePower >  132.5 : 
-|   |   Kilometres <= 78750 : 
-|   |   |   Year <= 2013.5 : LM12 (23/78.45%)
-|   |   |   Year >  2013.5 : LM13 (11/88.551%)
-|   |   Kilometres >  78750 : 
-|   |   |   Year <= 2008.5 : 
-|   |   |   |   HorsePower <= 171.5 : LM14 (17/20.689%)
-|   |   |   |   HorsePower >  171.5 : LM15 (29/48.847%)
-|   |   |   Year >  2008.5 : 
-|   |   |   |   HorsePower <= 137.5 : LM16 (41/35.04%)
-|   |   |   |   HorsePower >  137.5 : 
-|   |   |   |   |   HorsePower <= 200 : LM17 (28/51.405%)
-|   |   |   |   |   HorsePower >  200 : LM18 (19/47.632%)
+weights (not support vectors):
+ -       0.0004 * (normalized) Model=Megane
+ +       0.0006 * (normalized) Model=Clio
+ -       0.0002 * (normalized) Model=Laguna
+ +       0.0003 * (normalized) Model=Scenic
+ +       0      * (normalized) Model=Modus
+ +       0.0001 * (normalized) Model=Kangoo
+ +       0.0001 * (normalized) Model=Grand
+ +       0.0007 * (normalized) Model=Twingo
+ -       0.0011 * (normalized) Model=Espace
+ -       0.0002 * (normalized) Model=Vel
+ +       0      * (normalized) Model=Koleos
+ +       0      * (normalized) Model=Fluence
+ +       0      * (normalized) Model=Captur
+ +       0      * (normalized) Model=Express
+ +       0      * (normalized) Model=Fuego
+ +       0      * (normalized) Model=Latitude
+ +       0      * (normalized) Model=Nevada
+ +       0      * (normalized) Model=Rapid
+ -       0      * (normalized) Model=Safrane
+ +       0      * (normalized) Model=Thalia
+ +       0.0012 * (normalized) Kilometres
+ -       0.0002 * (normalized) Year
+ +       0.0015 * (normalized) HorsePower
+ -       0.0002 * (normalized) Fuel
+ -       0.0002 * (normalized) AirCondition
+ +       0.0006 * (normalized) NumOfDoors
+ -       0.0001 * (normalized) Gear
+ +       0.0006
 
-LM num: 1
-Price = 
-	0.0035 * Kilometres 
-	+ 44.8659 * Year 
-	+ 12.0072 * HorsePower 
-	- 43.6594 * Fuel 
-	- 819.2471 * NumOfDoors 
-	+ 131.166 * Gear 
-	- 88584.2101
 
-LM num: 2
-Price = 
-	-0.0002 * Kilometres 
-	+ 39.5931 * Year 
-	+ 6.1578 * HorsePower 
-	- 15.2233 * Fuel 
-	- 66.8855 * NumOfDoors 
-	+ 131.166 * Gear 
-	- 78133.8971
 
-LM num: 3
-Price = 
-	-0.0002 * Kilometres 
-	+ 39.5931 * Year 
-	+ 18.9072 * HorsePower 
-	- 15.2233 * Fuel 
-	- 66.8855 * NumOfDoors 
-	+ 131.166 * Gear 
-	- 79486.783
+Number of kernel evaluations: 74662235 (68.973% cached)
 
-LM num: 4
-Price = 
-	-0.0003 * Kilometres 
-	+ 415.4479 * Year 
-	+ 12.2631 * HorsePower 
-	+ 292.4931 * NumOfDoors 
-	+ 108.8936 * Gear 
-	- 828799.6112
+ SMO without car model 
 
-LM num: 5
-Price = 
-	-0.0011 * Kilometres 
-	+ 370.6285 * Year 
-	+ 9.8993 * HorsePower 
-	- 25.5748 * NumOfDoors 
-	+ 157.6438 * Gear 
-	- 738396.2694
+FilteredClassifier using weka.classifiers.functions.SMOreg -C 1.0 -N 0 -I "weka.classifiers.functions.supportVector.RegSMOImproved -L 0.001 -W 1 -P 1.0E-12 -T 0.001 -V" -K "weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0" on data filtered through weka.filters.unsupervised.attribute.Remove -R 1
 
-LM num: 6
-Price = 
-	-0.0163 * Kilometres 
-	+ 116.8575 * Year 
-	+ 56.2493 * HorsePower 
-	- 25.5748 * NumOfDoors 
-	+ 2027.1048 * Gear 
-	- 234173.4786
+Filtered Header
+@relation RenaultDataSet-weka.filters.unsupervised.attribute.Remove-R1
 
-LM num: 7
-Price = 
-	-0.005 * Kilometres 
-	+ 1304.2828 * Year 
-	+ 54.7922 * HorsePower 
-	- 140.4239 * NumOfDoors 
-	+ 129.6212 * Gear 
-	- 2612314.9536
+@attribute Kilometres numeric
+@attribute Price numeric
+@attribute Year numeric
+@attribute HorsePower numeric
+@attribute Fuel numeric
+@attribute AirCondition numeric
+@attribute NumOfDoors numeric
+@attribute Gear numeric
 
-LM num: 8
-Price = 
-	-0.0054 * Kilometres 
-	+ 754.6866 * Year 
-	+ 27.4296 * HorsePower 
-	- 1261.9 * NumOfDoors 
-	+ 129.6212 * Gear 
-	- 1504989.6779
+@data
 
-LM num: 9
-Price = 
-	-0.032 * Kilometres 
-	+ 125.3605 * Year 
-	+ 35.3961 * HorsePower 
-	- 3165.7804 * NumOfDoors 
-	+ 129.6212 * Gear 
-	- 237165.313
 
-LM num: 10
-Price = 
-	-0.0213 * Kilometres 
-	+ 310.8006 * Year 
-	+ 35.3961 * HorsePower 
-	- 3110.7175 * NumOfDoors 
-	+ 129.6212 * Gear 
-	- 611129.4357
+Classifier Model
+SMOreg
 
-LM num: 11
-Price = 
-	-0.0107 * Kilometres 
-	+ 2353.835 * Year 
-	+ 109.7489 * HorsePower 
-	+ 1184.4854 * Fuel 
-	+ 1745.134 * Gear 
-	- 4726349.5289
+weights (not support vectors):
+ -       0.0023 * (normalized) Kilometres
+ +       0.0003 * (normalized) Year
+ +       0.0007 * (normalized) HorsePower
+ -       0.0002 * (normalized) Fuel
+ -       0.0002 * (normalized) AirCondition
+ +       0.0012 * (normalized) NumOfDoors
+ -       0.0009 * (normalized) Gear
+ +       0.0002
 
-LM num: 12
-Price = 
-	-0.0133 * Kilometres 
-	+ 4402.547 * Year 
-	+ 170.815 * HorsePower 
-	+ 2110.1379 * Gear 
-	- 8848289.4396
 
-LM num: 13
-Price = 
-	-0.0133 * Kilometres 
-	+ 903.7169 * Year 
-	+ 319.3096 * HorsePower 
-	+ 2110.1379 * Gear 
-	- 1819583.4389
 
-LM num: 14
-Price = 
-	-0.0166 * Kilometres 
-	+ 2280.6917 * Year 
-	+ 75.1388 * HorsePower 
-	- 403.3541 * Fuel 
-	+ 2138.5624 * Gear 
-	- 4572106.7661
+Number of kernel evaluations: 15463350 (76.039% cached)
 
-LM num: 15
-Price = 
-	-0.0103 * Kilometres 
-	+ 3881.4783 * Year 
-	+ 70.8178 * HorsePower 
-	- 403.3541 * Fuel 
-	+ 2138.5624 * Gear 
-	- 7783866.3891
-
-LM num: 16
-Price = 
-	-0.0141 * Kilometres 
-	+ 2732.7921 * Year 
-	+ 77.3869 * HorsePower 
-	- 1074.8349 * Fuel 
-	+ 5367.2884 * Gear 
-	- 5483963.3123
-
-LM num: 17
-Price = 
-	-0.0382 * Kilometres 
-	+ 1246.7124 * Year 
-	+ 92.2871 * HorsePower 
-	- 4364.6923 * Fuel 
-	+ 2668.413 * Gear 
-	- 2488076.5115
-
-LM num: 18
-Price = 
-	-0.0212 * Kilometres 
-	+ 2079.3998 * Year 
-	+ 96.9884 * HorsePower 
-	- 5471.643 * Fuel 
-	+ 2668.413 * Gear 
-	- 4162323.753
-
-Number of Rules : 18
-
- Model tree with standardization 
+ Model tree with car model 
 
 M5 pruned model tree:
 (using smoothed linear models)
 
-Year <= 0.666 : 
-|   Year <= 0.195 : 
-|   |   Year <= -1.062 : 
-|   |   |   Kilometres <= -0.053 : LM1 (38/6.776%)
-|   |   |   Kilometres >  -0.053 : 
-|   |   |   |   HorsePower <= -0.3 : LM2 (101/4.267%)
-|   |   |   |   HorsePower >  -0.3 : LM3 (36/5.591%)
-|   |   Year >  -1.062 : 
-|   |   |   HorsePower <= -0.3 : LM4 (269/6.755%)
-|   |   |   HorsePower >  -0.3 : 
-|   |   |   |   HorsePower <= 0.373 : LM5 (152/7.943%)
-|   |   |   |   HorsePower >  0.373 : LM6 (50/41.414%)
-|   Year >  0.195 : 
-|   |   HorsePower <= 0.912 : LM7 (175/14.825%)
-|   |   HorsePower >  0.912 : 
-|   |   |   HorsePower <= 1.747 : LM8 (34/18.535%)
-|   |   |   HorsePower >  1.747 : 
-|   |   |   |   NumOfDoors <= -1.233 : LM9 (6/16.611%)
-|   |   |   |   NumOfDoors >  -1.233 : LM10 (7/15.264%)
-Year >  0.666 : 
-|   HorsePower <= 0.373 : LM11 (120/27.367%)
-|   HorsePower >  0.373 : 
-|   |   Kilometres <= -0.794 : 
-|   |   |   Year <= 1.766 : LM12 (23/78.45%)
-|   |   |   Year >  1.766 : LM13 (11/88.551%)
-|   |   Kilometres >  -0.794 : 
-|   |   |   Year <= 0.981 : 
-|   |   |   |   HorsePower <= 1.424 : LM14 (17/20.689%)
-|   |   |   |   HorsePower >  1.424 : LM15 (29/48.847%)
-|   |   |   Year >  0.981 : 
-|   |   |   |   HorsePower <= 0.508 : LM16 (41/35.04%)
-|   |   |   |   HorsePower >  0.508 : 
-|   |   |   |   |   HorsePower <= 2.192 : LM17 (28/51.405%)
-|   |   |   |   |   HorsePower >  2.192 : LM18 (19/47.632%)
+Kilometres <= 144036 : 
+|   Kilometres <= 90755 : 
+|   |   Kilometres <= 141 : LM1 (59/193.944%)
+|   |   Kilometres >  141 : LM2 (206/141.243%)
+|   Kilometres >  90755 : LM3 (605/105.674%)
+Kilometres >  144036 : 
+|   Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur <= 0.5 : LM4 (683/59.069%)
+|   Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur >  0.5 : 
+|   |   Model=Laguna,Vel,Twingo,Safrane,Captur <= 0.5 : 
+|   |   |   Kilometres <= 209183 : 
+|   |   |   |   HorsePower <= 79.5 : LM5 (678/104.698%)
+|   |   |   |   HorsePower >  79.5 : 
+|   |   |   |   |   Kilometres <= 166743 : LM6 (190/0.001%)
+|   |   |   |   |   Kilometres >  166743 : 
+|   |   |   |   |   |   Fuel <= 0.5 : 
+|   |   |   |   |   |   |   Year <= 2004.5 : LM7 (135/93.511%)
+|   |   |   |   |   |   |   Year >  2004.5 : 
+|   |   |   |   |   |   |   |   HorsePower <= 92 : LM8 (35/0.001%)
+|   |   |   |   |   |   |   |   HorsePower >  92 : 
+|   |   |   |   |   |   |   |   |   Year <= 2007.5 : LM9 (13/169.042%)
+|   |   |   |   |   |   |   |   |   Year >  2007.5 : LM10 (9/183.129%)
+|   |   |   |   |   |   Fuel >  0.5 : LM11 (78/0.001%)
+|   |   |   Kilometres >  209183 : LM12 (307/71.938%)
+|   |   Model=Laguna,Vel,Twingo,Safrane,Captur >  0.5 : LM13 (610/110.202%)
 
 LM num: 1
 Price = 
-	496.0381 * Kilometres 
-	+ 285.4915 * Year 
-	+ 445.622 * HorsePower 
-	- 16.3564 * Fuel 
-	- 258.0626 * NumOfDoors 
-	+ 58.9366 * Gear 
-	+ 2641.3155
+	3565007.1747 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 7555257.4398 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 422897111.6901 * Model=Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	- 361579517.5325 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 770572.5208 * Model=Vel,Twingo,Safrane,Captur 
+	+ 1210004.0272 * Kilometres 
+	+ 14584407.4364 * Year 
+	- 219792.5137 * HorsePower 
+	- 194516.2802 * Fuel 
+	- 10510647.4093 * AirCondition 
+	+ 224128.0198 * NumOfDoors 
+	- 29153560705.4511
 
 LM num: 2
 Price = 
-	-22.6982 * Kilometres 
-	+ 251.9393 * Year 
-	+ 228.5328 * HorsePower 
-	- 5.7032 * Fuel 
-	- 21.0689 * NumOfDoors 
-	+ 58.9366 * Gear 
-	+ 1816.6198
+	3565007.1747 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	- 273426.0413 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 13102261.9009 * Model=Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	- 11115244.2616 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 770572.5208 * Model=Vel,Twingo,Safrane,Captur 
+	- 24.1164 * Kilometres 
+	+ 677432.1735 * Year 
+	- 51021.9747 * HorsePower 
+	- 194516.2802 * Fuel 
+	- 66330363.0663 * AirCondition 
+	+ 224128.0198 * NumOfDoors 
+	- 1270610541.3424
 
 LM num: 3
 Price = 
-	-26.6747 * Kilometres 
-	+ 251.9393 * Year 
-	+ 701.6976 * HorsePower 
-	- 5.7032 * Fuel 
-	- 21.0689 * NumOfDoors 
-	+ 58.9366 * Gear 
-	+ 1971.1144
+	1450204.8019 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	- 1764382.3897 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	- 23420759.0342 * Model=Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 2121423.6633 * Model=Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	- 1691338.1011 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 770572.5208 * Model=Vel,Twingo,Safrane,Captur 
+	- 11.7841 * Kilometres 
+	+ 119210.4704 * Year 
+	+ 710566.6375 * HorsePower 
+	- 22577121.4041 * Fuel 
+	+ 224128.0198 * NumOfDoors 
+	- 238164212.0238
 
 LM num: 4
 Price = 
-	-42.8849 * Kilometres 
-	+ 2643.5872 * Year 
-	+ 455.1175 * HorsePower 
-	+ 92.1352 * NumOfDoors 
-	+ 48.929 * Gear 
-	+ 4723.158
+	-93674.7111 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 368715.2824 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 249132.0845 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 247714.0141 * Model=Vel,Twingo,Safrane,Captur 
+	- 0.5234 * Kilometres 
+	+ 6971.5957 * Year 
+	+ 1972.1524 * HorsePower 
+	- 14309167.1971 * Fuel 
+	+ 72049.872 * NumOfDoors 
+	+ 552863.8067
 
 LM num: 5
 Price = 
-	-155.5166 * Kilometres 
-	+ 2358.3912 * Year 
-	+ 367.3921 * HorsePower 
-	- 8.0561 * NumOfDoors 
-	+ 70.8339 * Gear 
-	+ 4685.7
+	-93674.7111 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 178295.3804 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 84006.8575 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 247714.0141 * Model=Vel,Twingo,Safrane,Captur 
+	- 0.5234 * Kilometres 
+	+ 6971.5957 * Year 
+	+ 1972.1524 * HorsePower 
+	- 62530.6604 * Fuel 
+	+ 72049.872 * NumOfDoors 
+	+ 16948386.0922
 
 LM num: 6
 Price = 
-	-2337.3311 * Kilometres 
-	+ 743.5901 * Year 
-	+ 2087.5666 * HorsePower 
-	- 8.0561 * NumOfDoors 
-	+ 910.8366 * Gear 
-	+ 3886.3849
+	-93674.7111 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 178295.3804 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 84006.8575 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 247714.0141 * Model=Vel,Twingo,Safrane,Captur 
+	+ 55.2822 * Kilometres 
+	+ 354780.3603 * Year 
+	+ 1972.1524 * HorsePower 
+	- 1726496.8999 * Fuel 
+	+ 72049.872 * NumOfDoors 
+	- 717619600.175
 
 LM num: 7
 Price = 
-	-722.3458 * Kilometres 
-	+ 8299.44 * Year 
-	+ 2033.4893 * HorsePower 
-	- 44.2335 * NumOfDoors 
-	+ 58.2426 * Gear 
-	+ 4641.4844
+	-93674.7111 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 178295.3804 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 84006.8575 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 247714.0141 * Model=Vel,Twingo,Safrane,Captur 
+	+ 39.6175 * Kilometres 
+	+ 2259855.6084 * Year 
+	+ 1972.1524 * HorsePower 
+	- 3793988.3958 * Fuel 
+	+ 72049.872 * NumOfDoors 
+	- 4509194915.5244
 
 LM num: 8
 Price = 
-	-778.9736 * Kilometres 
-	+ 4802.2375 * Year 
-	+ 1017.9889 * HorsePower 
-	- 397.4981 * NumOfDoors 
-	+ 58.2426 * Gear 
-	+ 7213.0511
+	-93674.7111 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 178295.3804 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 84006.8575 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 247714.0141 * Model=Vel,Twingo,Safrane,Captur 
+	+ 1103.7835 * Kilometres 
+	+ 11705921.1406 * Year 
+	+ 2041693.1861 * HorsePower 
+	- 3793988.3958 * Fuel 
+	+ 21663560.0488 * AirCondition 
+	+ 72049.872 * NumOfDoors 
+	- 23847425267.239
 
 LM num: 9
 Price = 
-	-4592.9129 * Kilometres 
-	+ 797.6968 * Year 
-	+ 1313.6478 * HorsePower 
-	- 997.2199 * NumOfDoors 
-	+ 58.2426 * Gear 
-	+ 9095.0695
+	-93674.7111 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 178295.3804 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 84006.8575 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 247714.0141 * Model=Vel,Twingo,Safrane,Captur 
+	+ 4643.6876 * Kilometres 
+	+ 33937281.4734 * Year 
+	+ 2758351.9276 * HorsePower 
+	- 3793988.3958 * Fuel 
+	+ 93637790.0814 * AirCondition 
+	+ 72049.872 * NumOfDoors 
+	- 69155698387.0004
 
 LM num: 10
 Price = 
-	-3052.4845 * Kilometres 
-	+ 1977.6929 * Year 
-	+ 1313.6478 * HorsePower 
-	- 979.8751 * NumOfDoors 
-	+ 58.2426 * Gear 
-	+ 8547.7362
+	-93674.7111 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 178295.3804 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 84006.8575 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 247714.0141 * Model=Vel,Twingo,Safrane,Captur 
+	+ 5171.3556 * Kilometres 
+	+ 37172703.1515 * Year 
+	+ 2758351.9276 * HorsePower 
+	- 3793988.3958 * Fuel 
+	+ 226316107.7694 * AirCondition 
+	+ 72049.872 * NumOfDoors 
+	- 75760630207.5672
 
 LM num: 11
 Price = 
-	-1531.952 * Kilometres 
-	+ 14977.9727 * Year 
-	+ 4073.0877 * HorsePower 
-	+ 443.7505 * Fuel 
-	+ 784.139 * Gear 
-	- 1705.5401
+	-93674.7111 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 178295.3804 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 84006.8575 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 247714.0141 * Model=Vel,Twingo,Safrane,Captur 
+	+ 39.6175 * Kilometres 
+	+ 1790607.8681 * Year 
+	+ 1972.1524 * HorsePower 
+	- 6900880.3335 * Fuel 
+	+ 72049.872 * NumOfDoors 
+	- 3587272531.2622
 
 LM num: 12
 Price = 
-	-1909.6689 * Kilometres 
-	+ 28014.3808 * Year 
-	+ 6339.4197 * HorsePower 
-	+ 948.1457 * Gear 
-	- 14949.6727
+	-93674.7111 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 178295.3804 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 84006.8575 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 247714.0141 * Model=Vel,Twingo,Safrane,Captur 
+	- 0.5234 * Kilometres 
+	+ 6971.5957 * Year 
+	+ 1972.1524 * HorsePower 
+	- 62530.6604 * Fuel 
+	+ 72049.872 * NumOfDoors 
+	+ 1122913.628
 
 LM num: 13
 Price = 
-	-1909.6689 * Kilometres 
-	+ 5750.5508 * Year 
-	+ 11850.4663 * HorsePower 
-	+ 948.1457 * Gear 
-	+ 25806.4323
+	-93674.7111 * Model=Grand,Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 178295.3804 * Model=Scenic,Megane,Kangoo,Laguna,Vel,Twingo,Safrane,Captur 
+	+ 84006.8575 * Model=Laguna,Vel,Twingo,Safrane,Captur 
+	+ 247714.0141 * Model=Vel,Twingo,Safrane,Captur 
+	- 0.5234 * Kilometres 
+	+ 6971.5957 * Year 
+	+ 1972.1524 * HorsePower 
+	- 62530.6604 * Fuel 
+	+ 72049.872 * NumOfDoors 
+	+ 20487976.2411
 
-LM num: 14
+Number of Rules : 13
+
+ Model tree without car model 
+
+FilteredClassifier using weka.classifiers.trees.M5P -M 4.0 on data filtered through weka.filters.unsupervised.attribute.Remove -R 1
+
+Filtered Header
+@relation RenaultDataSet-weka.filters.unsupervised.attribute.Remove-R1
+
+@attribute Kilometres numeric
+@attribute Price numeric
+@attribute Year numeric
+@attribute HorsePower numeric
+@attribute Fuel numeric
+@attribute AirCondition numeric
+@attribute NumOfDoors numeric
+@attribute Gear numeric
+
+@data
+
+
+Classifier Model
+M5 pruned model tree:
+(using smoothed linear models)
+
+Kilometres <= 144036 : LM1 (870/126.353%)
+Kilometres >  144036 : LM2 (2738/89.003%)
+
+LM num: 1
 Price = 
-	-2376.0142 * Kilometres 
-	+ 14512.5459 * Year 
-	+ 2788.6108 * HorsePower 
-	- 151.1108 * Fuel 
-	+ 960.9177 * Gear 
-	+ 687.8148
+	-446.5593 * Kilometres 
+	+ 4070872.3828 * Year 
+	+ 495550.2175 * HorsePower 
+	- 25162627.7505 * Fuel 
+	- 8096191741.1636
 
-LM num: 15
+LM num: 2
 Price = 
-	-1484.296 * Kilometres 
-	+ 24698.7055 * Year 
-	+ 2628.2442 * HorsePower 
-	- 151.1108 * Fuel 
-	+ 960.9177 * Gear 
-	- 5195.38
+	-0.6024 * Kilometres 
+	+ 2072.4906 * HorsePower 
+	- 62424.6999 * Fuel 
+	+ 22550404.4775
 
-LM num: 16
-Price = 
-	-2024.2933 * Kilometres 
-	+ 17389.3605 * Year 
-	+ 2872.0426 * HorsePower 
-	- 402.6715 * Fuel 
-	+ 2411.6773 * Gear 
-	- 4415.3856
-
-LM num: 17
-Price = 
-	-5478.6625 * Kilometres 
-	+ 7933.1065 * Year 
-	+ 3425.0321 * HorsePower 
-	- 1635.1693 * Fuel 
-	+ 1198.9948 * Gear 
-	+ 11770.7305
-
-LM num: 18
-Price = 
-	-3035.2122 * Kilometres 
-	+ 13231.6807 * Year 
-	+ 3599.5083 * HorsePower 
-	- 2049.8725 * Fuel 
-	+ 1198.9948 * Gear 
-	+ 8432.7625
-
-Number of Rules : 18
+Number of Rules : 2

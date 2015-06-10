@@ -1,3 +1,17 @@
+@Relation RenaultDataSet
+
+@Attribute Model	{Megane,Clio,Laguna,Scenic,Modus,Kangoo,Grand,Twingo,Espace,Vel,Koleos,Fluence,Captur,Express,Fuego,Latitude,Nevada,Rapid,Safrane,Thalia}
+@Attribute Kilometres		NUMERIC
+@Attribute Price			NUMERIC
+@Attribute Year 			NUMERIC 
+@Attribute HorsePower		NUMERIC
+@Attribute Fuel			    NUMERIC
+@Attribute AirCondition	    NUMERIC
+@Attribute NumOfDoors		NUMERIC
+@Attribute Gear			    NUMERIC
+
+@Data
+
 Megane,136570,6499,2010,81,0,0,1,0
 Clio,168000,1850,2002,60,0,1,0,0
 Megane,137000,3500,2003,88,0,1,1,0
@@ -412,7 +426,6 @@ Clio,191120,4550,2009,63,0,0,1,0
 Laguna,320000,1450,1997,107,0,1,1,0
 Megane,156000,4850,2007,110,0,0,1,0
 Megane,224000,2699,2004,88,0,1,1,0
-(može,400,7000,2001,90,0,1,1,0
 Scenic,196000,4450,2008,78,0,0,1,0
 Scenic,170000,3099,2004,88,0,1,1,0
 Laguna,165000,3300,2004,88,0,1,1,0
@@ -3607,3 +3620,4 @@ Laguna,173000,8800,2010,96,0,0,1,0
 Vel,135424,15700,2008,100,1,0,1,1
 Laguna,141000,2600,2003,88,0,0,1,0
 Clio,235888,2000,2002,48,1,1,1,0
+

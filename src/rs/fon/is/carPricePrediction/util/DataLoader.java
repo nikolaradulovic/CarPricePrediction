@@ -12,7 +12,7 @@ public class DataLoader {
 
         ConverterUtils.DataSource loader = new ConverterUtils.DataSource(arrFileName);
         Instances loadedData = loader.getDataSet();
-        loadedData.setClassIndex(1);
+        loadedData.setClassIndex(2);
 
         return loadedData;
     }

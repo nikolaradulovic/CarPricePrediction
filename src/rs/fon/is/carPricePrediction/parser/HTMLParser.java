@@ -19,6 +19,9 @@ public class HTMLParser {
     private String link;
 
 
+ //   private BufferedWriter fileWriter;
+
+
     public HTMLParser(String link){
         this.link = link;
     }
@@ -38,6 +41,7 @@ public class HTMLParser {
             //Izracunavanje broja stranica, za kasniji prolazak for petljom kroz sve stranice
             numberOfCars = Integer.parseInt(firstElement.text());
 
+
             System.out.println("Ukupan broj pronadjenih automobila; "+ numberOfCars);
             numberOfPages = numberOfCars/25;
 
@@ -50,14 +54,23 @@ public class HTMLParser {
         return numberOfPages;
     }
 
-    public void generateData(int numberOfPages){
+    public void generateData(int numberOfPages) throws IOException {
 
-        String km="", date="", price="", horsePower="", fuel="", airCondition="", numOfDoors ="", gear="";
+        String model="", km="", date="", price="", horsePower="", fuel="", airCondition="", numOfDoors ="", gear="";
 
-        for (int i=1; i<numberOfPages;i++){
+
+        for (int i=1; i<numberOfPages -1;i++){
             Document document;
             try{
-                document = Jsoup.connect("http://www.polovniautomobili.com/putnicka-vozila/pretraga?page="+i+"&sort=renewDate_desc&brand=37&city_distance=0&showOldNew=all&without_price=1").get();
+                document = Jsoup.connect("http://www.polovniautomobili.com/putnicka-vozila/pretraga?page="+i+"&sort=renewDate_desc&brand=192&city_distance=0&showOldNew=all&without_price=1").get();
+
+               //odavde dodajem novo!!!
+                 Elements carModel = document.select("#search-results .itemtitle");
+                 for(Element e:carModel){
+                    model += (e.text().split(" "))[1]+" ";
+                 }
+
+
 
                 //Prikupljanje podataka o predjenoj kilometrazi svih automobila
                 Elements kilometres = document.select("#search-results .title-km");
@@ -79,6 +92,8 @@ public class HTMLParser {
                     String carYear = e.text();
                     if(carYear != null){
                         date+= carYear.substring(0, carYear.length() -4);
+            //            fileWriter.write((e.text().split(" "))[1]);
+
                     }
                 }
 
@@ -90,10 +105,14 @@ public class HTMLParser {
                     if (carPrice != null && carPrice.length() >=1){
                         if (carPrice.equals("Na upit") || carPrice.equals("Po dogovoru")){
                             price+= "1122334455 ";
+          //                  fileWriter.write((e.text().split(" "))[1]);
+//
                         }
                         else{
                             String priceFinal = carPrice.replace(".", "");
                             price+= priceFinal.substring(0,priceFinal.length() - 1);
+                    //        fileWriter.write((e.text().split(" "))[1]);
+
                         }
                     }
 
@@ -151,7 +170,9 @@ public class HTMLParser {
                 try
                 {
                     //upisivanje podataka u fajl
-                    writer = new BufferedWriter( new FileWriter("data/unsortedData.txt"));
+                    writer = new BufferedWriter( new FileWriter("data/unsortedData.csv"));
+                    writer.write(model);
+                    writer.newLine();
                     writer.write(km);
                     writer.newLine();
                     writer.write(price);
@@ -195,13 +216,5 @@ public class HTMLParser {
 
     }
 
-    public static double round(double value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
-
-        long factor = (long) Math.pow(10, places);
-        value = value * factor;
-        long tmp = Math.round(value);
-        return (double) tmp / factor;
-    }
 
 }

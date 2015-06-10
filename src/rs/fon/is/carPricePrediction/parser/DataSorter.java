@@ -10,9 +10,10 @@ import java.util.Scanner;
  */
 public class DataSorter {
 
-    public int[][] loadDataFromFile(String filePath) throws FileNotFoundException {
+    public String[][] loadDataFromFile(String filePath) throws FileNotFoundException {
 
-        int[][] matrix = { { 1 }, { 2 } };
+        String[][] matrix;
+       // int[][] matrix = { { 1 }, { 2 } };
 
         File inFile = new File(filePath);
 
@@ -26,7 +27,7 @@ public class DataSorter {
 
         in.close();
 
-        matrix = new int[8][intLength];
+        matrix = new String[9][intLength];
         in = new Scanner(inFile);
 
         int lineCount = 0;
@@ -34,7 +35,10 @@ public class DataSorter {
             String[] currentLine = in.nextLine().trim().split(" ");
             for (int i = 0; i < currentLine.length; i++) {
                 try{
-                matrix[lineCount][i] = Integer.parseInt(currentLine[i]);}
+
+               // matrix[lineCount][i] = Integer.parseInt(currentLine[i]);
+                    matrix[lineCount][i] = currentLine[i];
+                }
                 catch (Exception ex){
                    ex.printStackTrace();
                 }
@@ -46,8 +50,8 @@ public class DataSorter {
         return matrix;
     }
 
-    public int[][] rotateMatrix(int[][] matrix){
-        int[][] rotatedMatrix = new int[matrix[0].length][matrix.length];
+    public String[][] rotateMatrix(String[][] matrix){
+        String[][] rotatedMatrix = new String[matrix[0].length][matrix.length];
         for (int i = 0; i < matrix[0].length; i++) {
             for (int j = matrix.length - 1; j >= 0; j--) {
                 rotatedMatrix[i][j] = matrix[j][i];
@@ -57,7 +61,7 @@ public class DataSorter {
         return rotatedMatrix;
     }
 
-    public void writeInFile(int[][] rotatedMatrix){
+    public void writeInFile(String[][] rotatedMatrix){
 
 
         PrintWriter writer = null;
@@ -68,9 +72,10 @@ public class DataSorter {
 
 
                 for (int j = 0; j < rotatedMatrix[0].length; j++) {
-                    if (rotatedMatrix[i][j] == 1122334455) {
+                    if (rotatedMatrix[i][j] == ("1122334455") || rotatedMatrix[i][j] ==null || rotatedMatrix[i][j].equals("R")) {
                         continue mainloop;
                     }
+
                 }
 
                 String text = "";

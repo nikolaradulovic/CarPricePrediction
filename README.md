@@ -6,6 +6,31 @@ The main idea of this project is to get data about used cars from web site www.p
 
 Linear Regression is a famous technique often used in the process of data mining. It can be very simple with only one variable as input and one as output, but of course it can have far more input variables. Basically, all this models have one or more independent variables which together produce dependent variable as a result. The regression model is used to predict the value of an unknown dependent variable.
 
-Support vector machine is a supervised learning model, very similar to linear regression, that analyze data, recognize patters and use these results for later predictions. What differs it from simple regression is that SVR can efficiently perform a non-linear classification too.     
+Support vector machine is a supervised learning model, very similar to linear regression, that analyze data, recognize patters and use these results for later predictions. What differs it from simple regression is that SVR can efficiently perform a non-linear classification too.   
+
+<h1> Dataset </h1>
+
+Data used in this research are collected from web site www.polovniautomobili.com. For the purpose of this assignment, all data is about french car manufacturer "Renault", currently selling on the Serbian market, but of course it can include any other car type. This application uses the Jsoup library for Java, which can easily scrape all necessary data from HTML site, in this case different specifications for a large number of selling vehicles. All data are stored in in "dataSet.csv" file located in folder "data" on project's root. Our search gave 3608 different car instances, which are valid and can be used later for regression. In the next example, you can find a couple of instances with detail explanation for all their attributes:
+
+1. Megane,136570,6499,2010,81,0,0,1,0
+2. Clio,168000,1850,2002,60,0,1,0,0
+3. Megane,137000,3500,2003,88,0,1,1,0
+4. Clio,156000,2100,2002,43,0,1,0,0
+5. Laguna,180000,1950,2002,88,1,1,1,0
+
+Explanation for first car:
+
+Car model - "Megane"
+Mileage- 136570km
+Price - 6499 (Euros)
+Year of production- 2010
+Horsepower- 81 
+Fuel- 0 (0-Diesel, 1-Gas)
+Air conditioner- 0 (0-Manuel, 1-Automatic)
+Door count- 1 (0- 2/3, 1- 4/5)
+Gear 0 (0-Manuel, 1-Automatic)
+
+All this car attributes are used to predict price of a single car, based on current market prices.
+
 
 

@@ -6,6 +6,6 @@ The main idea of this project is to get data about used cars from web site www.p
 
 Linear Regression is a famous technique often used in the process of data mining. It can be very simple with only one variable as input and one as output, but of course it can have far more input variables. Basically, all this models have one or more independent variables which together produce dependent variable as a result. The regression model is used to predict the value of an unknown dependent variable.
 
-Support vector machine is supervised learning model, very similar to linear regression, that analyze data, recongize patters and use this results for later predictions. What differs it from simple regression is that SVR can efficiently perfom a non-linear classification too.    
+Support vector machine is a supervised learning model, very similar to linear regression, that analyze data, recognize patters and use these results for later predictions. What differs it from simple regression is that SVR can efficiently perform a non-linear classification too.     
 
 

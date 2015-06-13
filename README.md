@@ -20,15 +20,15 @@ Data used in this research are collected from web site www.polovniautomobili.com
 
 Explanation for first car:
 
-Car model - "Megane"
-Mileage- 136570km
-Price - 6499 (Euros)
-Year of production- 2010
-Horsepower- 81 
-Fuel- 0 (0-Diesel, 1-Gas)
-Air conditioner- 0 (0-Manuel, 1-Automatic)
-Door count- 1 (0- 2/3, 1- 4/5)
-Gear 0 (0-Manuel, 1-Automatic)
+Car model - "Megane" <br>
+Mileage- 136570km <br>
+Price - 6499 (Euros) <br>
+Year of production- 2010 <br>
+Horsepower- 81 <br>
+Fuel- 0 (0-Diesel, 1-Gas) <br>
+Air conditioner- 0 (0-Manuel, 1-Automatic) <br>
+Door count- 1 (0- 2/3, 1- 4/5) <br>
+Gear 0 (0-Manuel, 1-Automatic) <br>
 
 All this car attributes are used to predict price of a single car, based on current market prices.
 

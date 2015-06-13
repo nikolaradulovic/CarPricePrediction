@@ -4,3 +4,6 @@ The main idea of this project is to get data about used cars from web site www.p
 
 <h1> 2. Linear Regression and SVR </h1>
 
+Linear Regression is a famous technique often used in the process of data mining. This model can be very simple with only one variable as input and one as output, but of course it can have far more input variables. Basically, all this models have one or more independent variables which together produce dependent variable as a result. The regression model is used to predict the value of an unknown dependent variable. 
+
+

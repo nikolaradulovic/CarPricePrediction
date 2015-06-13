@@ -8,7 +8,7 @@ Linear Regression is a famous technique often used in the process of data mining
 
 Support vector machine is a supervised learning model, very similar to linear regression, that analyze data, recognize patters and use these results for later predictions. What differs it from simple regression is that SVR can efficiently perform a non-linear classification too.   
 
-<h1> Dataset </h1>
+<h1> 3. Dataset </h1>
 
 Data used in this research are collected from web site www.polovniautomobili.com. For the purpose of this assignment, all data is about french car manufacturer "Renault", currently selling on the Serbian market, but of course it can include any other car type. This application uses the Jsoup library for Java, which can easily scrape all necessary data from HTML site, in this case different specifications for a large number of selling vehicles. All data are stored in in "dataSet.csv" file located in folder "data" on project's root. Our search gave 3608 different car instances, which are valid and can be used later for regression. In the next example, you can find a couple of instances with detail explanation for all their attributes:
 

@@ -1,2 +1,2 @@
-<p> 1. About the project <p>
+<h1> 1. About the project </h1>
 

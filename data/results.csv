@@ -17,6 +17,14 @@ Price =
 19584363.2799 * NumOfDoors +
 -26816195.8001
 
+Correlation coefficient                  0.0008
+Mean absolute error                56804067.6671
+Root mean squared error            178348486.969
+Relative absolute error                101.8182 %
+Root relative squared error            100.783  %
+Total Number of Instances             3608     
+
+
  Linear Regression without car model 
 
 FilteredClassifier using weka.classifiers.functions.LinearRegression -S 0 -C -R 1.0E-8 on data filtered through weka.filters.unsupervised.attribute.Remove -R 1
@@ -46,6 +54,14 @@ Price =
  380371.1006 * HorsePower +
 -11457013.2629 * Fuel +
 22988254.5035
+
+Correlation coefficient                  0.0265
+Mean absolute error                55851058.751
+Root mean squared error            177131561.991
+Relative absolute error                100.1104 %
+Root relative squared error            100.0967 %
+Total Number of Instances             3608     
+
 
  SMO with car model 
 
@@ -85,6 +101,14 @@ weights (not support vectors):
 
 Number of kernel evaluations: 74662235 (68.973% cached)
 
+Correlation coefficient                  0.0024
+Mean absolute error                29553288.8784
+Root mean squared error            179066322.1893
+Relative absolute error                 52.9752 %
+Root relative squared error            101.1945 %
+Total Number of Instances             3608     
+
+
  SMO without car model 
 
 FilteredClassifier using weka.classifiers.functions.SMOreg -C 1.0 -N 0 -I "weka.classifiers.functions.supportVector.RegSMOImproved -L 0.001 -W 1 -P 1.0E-12 -T 0.001 -V" -K "weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0" on data filtered through weka.filters.unsupervised.attribute.Remove -R 1
@@ -120,6 +144,14 @@ weights (not support vectors):
 
 
 Number of kernel evaluations: 15463350 (76.039% cached)
+
+Correlation coefficient                  0.0386
+Mean absolute error                29565984.2298
+Root mean squared error            179042425.3238
+Relative absolute error                 53.0042 %
+Root relative squared error            101.1934 %
+Total Number of Instances             3608     
+
 
  Model tree with car model 
 

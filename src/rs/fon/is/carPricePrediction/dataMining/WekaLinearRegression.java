@@ -1,5 +1,6 @@
 package rs.fon.is.carPricePrediction.dataMining;
 
+import weka.classifiers.Evaluation;
 import weka.classifiers.functions.LinearRegression;
 import weka.classifiers.meta.FilteredClassifier;
 import weka.core.Instances;
@@ -7,6 +8,8 @@ import weka.filters.Filter;
 import weka.filters.MultiFilter;
 import weka.filters.unsupervised.attribute.Remove;
 import weka.filters.unsupervised.attribute.Standardize;
+
+import java.util.Random;
 
 /**
  * Created by Nikola on 6/9/2015.
@@ -26,6 +29,12 @@ public class WekaLinearRegression {
                 linearRegression.buildClassifier(data);
                 System.out.println(linearRegression.toString());
 
+                Evaluation evaluation = new Evaluation(data);
+                evaluation.crossValidateModel(linearRegression,data,10,new Random());
+
+                System.out.println(evaluation.toSummaryString());
+
+
         }
 
         public void classifyWithoutModel(Instances data) throws Exception{
@@ -37,6 +46,11 @@ public class WekaLinearRegression {
                 this.filteredClassifier.setFilter(remove);
                 this.filteredClassifier.buildClassifier(data);
                 System.out.println(filteredClassifier);
+
+                Evaluation evaluation = new Evaluation(data);
+                evaluation.crossValidateModel(this.filteredClassifier,data,10,new Random());
+
+                System.out.println(evaluation.toSummaryString());
 
         }
 

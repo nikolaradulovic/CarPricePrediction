@@ -25,7 +25,7 @@ public class Main {
 //
 //        htmlParser.generateData(numOfPages);
 //
-//        System.out.println("Podaci su preuzeti");
+//        System.out.println("Scraping finished");
 //
 //        DataSorter ds = new DataSorter();
 //        String[][] matrix = ds.loadDataFromFile("data/unsortedData.csv");
@@ -33,7 +33,7 @@ public class Main {
 //
 //        ds.writeInFile(rotatedMatrix);
 //
-//        System.out.println("Podaci su uspesno upisani");
+//        System.out.println("DataSet completed");
 
 //        upisujem ceo output direktno u file results.txt
         PrintStream out = new PrintStream(new FileOutputStream("data/results.csv"));

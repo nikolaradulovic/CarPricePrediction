@@ -72,7 +72,8 @@ public class DataSorter {
 
 
                 for (int j = 0; j < rotatedMatrix[0].length; j++) {
-                    if (rotatedMatrix[i][j] == ("1122334455") || rotatedMatrix[i][j] ==null || rotatedMatrix[i][j].equals("R")) {
+                    if ((rotatedMatrix[i][j].equals("error")) || (rotatedMatrix[i][j] ==null) || (rotatedMatrix[i][j].equals("R"))) {
+                        String s = rotatedMatrix[i][j];
                         continue mainloop;
                     }
 

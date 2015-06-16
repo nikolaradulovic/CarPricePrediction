@@ -1,7 +1,6 @@
 package rs.fon.is.carPricePrediction.main;
 
 import rs.fon.is.carPricePrediction.dataMining.WekaLinearRegression;
-import rs.fon.is.carPricePrediction.dataMining.WekaModelTree;
 import rs.fon.is.carPricePrediction.dataMining.WekaSMOreg;
 import rs.fon.is.carPricePrediction.util.DataLoader;
 import weka.core.Instances;
@@ -19,7 +18,7 @@ public class Main {
 
     public static void main (String[] args) throws Exception {
 
-        //Stari kod, pisem novi
+//        Stari kod, pisem novi
 //        HTMLParser htmlParser = new HTMLParser(renault);
 //        int numOfPages = htmlParser.calculateNumberOfPages();
 //
@@ -36,12 +35,12 @@ public class Main {
 //        System.out.println("DataSet completed");
 
 //        upisujem ceo output direktno u file results.txt
-        PrintStream out = new PrintStream(new FileOutputStream("data/results.csv"));
+        PrintStream out = new PrintStream(new FileOutputStream("data/results.txt"));
         System.setOut(out);
 
         Instances data = DataLoader.loadTrainingData("data/dataSet_renault.arff");
         WekaLinearRegression lr = new WekaLinearRegression();
-        WekaModelTree m5p = new WekaModelTree();
+      //  WekaModelTree m5p = new WekaModelTree();
         WekaSMOreg smoReg = new WekaSMOreg();
 
         System.out.println("\n Linear Regression with car model \n");
@@ -54,10 +53,10 @@ public class Main {
         System.out.println("\n SMO without car model \n");
         smoReg.classifyWithoutModel(data);
 
-        System.out.println("\n Model tree with car model \n");
-        m5p.classifyWithModel(data);
-        System.out.println("\n Model tree without car model \n");
-       m5p.classifyWithoutModel(data);
+//        System.out.println("\n Model tree with car model \n");
+//        m5p.classifyWithModel(data);
+//        System.out.println("\n Model tree without car model \n");
+//       m5p.classifyWithoutModel(data);
 
 
 

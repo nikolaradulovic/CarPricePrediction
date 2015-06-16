@@ -19,8 +19,6 @@ public class HTMLParser {
     private String link;
 
 
- //   private BufferedWriter fileWriter;
-
 
     public HTMLParser(String link){
         this.link = link;
@@ -59,7 +57,7 @@ public class HTMLParser {
         String model="", km="", date="", price="", horsePower="", fuel="", airCondition="", numOfDoors ="", gear="";
 
 
-        for (int i=1; i<numberOfPages -1;i++){
+     for (int i=1; i<numberOfPages -1;i++){
             Document document;
             try{
                 document = Jsoup.connect("http://www.polovniautomobili.com/putnicka-vozila/pretraga?page="+i+"&sort=renewDate_desc&brand=192&city_distance=0&showOldNew=all&without_price=1").get();
@@ -78,11 +76,8 @@ public class HTMLParser {
                     String carKm = e.text();
                     if(carKm != null && carKm.length() >= 2){
                         String kmFinal = carKm.replace(".","");
-                        //String kmSubstringed = kmFinal.substring(0,kmFinal.length()-2);
-                        //double kmNormalized = Double.parseDouble(kmSubstringed)/300000;
                         km+= kmFinal.substring(0, kmFinal.length() -2);
-                        // km+= round(kmNormalized, 2);
-                         //System.out.println(round(kmNormalized,2));
+
                     }
                 }
 
@@ -92,7 +87,7 @@ public class HTMLParser {
                     String carYear = e.text();
                     if(carYear != null){
                         date+= carYear.substring(0, carYear.length() -4);
-            //            fileWriter.write((e.text().split(" "))[1]);
+
 
                     }
                 }
@@ -104,14 +99,13 @@ public class HTMLParser {
                     String carPrice = e.text();
                     if (carPrice != null && carPrice.length() >=1){
                         if (carPrice.equals("Na upit") || carPrice.equals("Po dogovoru")){
-                            price+= "1122334455 ";
-          //                  fileWriter.write((e.text().split(" "))[1]);
-//
+                            price+= "error ";
+
                         }
                         else{
                             String priceFinal = carPrice.replace(".", "");
                             price+= priceFinal.substring(0,priceFinal.length() - 1);
-                    //        fileWriter.write((e.text().split(" "))[1]);
+
 
                         }
                     }
@@ -131,7 +125,7 @@ public class HTMLParser {
 
                     //Obradjujem izuzetak menjanjem u nerealni broj
                     if (kw.contains("Manuel") || kw.contains("A")){
-                        kw = "112233445566";
+                        kw = "error ";
                     }
                     horsePower+= kw.substring(0, kw.length() -2)+" ";
 

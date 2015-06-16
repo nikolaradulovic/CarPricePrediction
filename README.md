@@ -43,7 +43,12 @@ In this project two weka classes that were used are LinearRegression and SMOreg 
 
 <h1> 5. Analyze </h1>
 
-![Alt text](/data/results.png?raw=true "Regression results")
+Detailed results of this project are provided in the file "data/results.txt" and here we will provide an explanation for that. In the first part of this paragraph you will see common characteristics of all 4 regression methods. Attributes which regression results listed as relevant for price prediction in all cases are: kilometers, year, horsepower and gear. First attribute, kilometers, has negative impact on price, which means the more kilometers one car had travelled, the lower its price will be. All other 3 attributes have positive coefficients before it, which clearly means that the higher they are, higher the car price will be. Concretely, for year parameter, this means the younger vehicle is, the higher value for the year of production it has. Similar goes for horsepower and gear parameters too. 
+
+![Alt text](/image/price.png?raw=true "Regression results")
+
+
+![Alt text](/image/results.png?raw=true "Regression results")
 
 <h1> 6. References </h1>
 

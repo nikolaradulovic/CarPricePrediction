@@ -38,7 +38,15 @@ All this car attributes are used to predict price of a single car, based on curr
 
 This project uses Weka library for Java. Weka is a collection of machine learning algorithms for data mining, that was founded in Waikato University of New Zeland. All these algorithms can be used directly from code by importing "weka. jar" file or through the graphical interface called Weka Explorer. Weka contains tools for data preprocessing, classification, regression, clustering and visualization.
 
-In this project two Weka classes were used - LinearRegression and SMOreg (Support Vector Regression). As this dataset contains nominal values too, two different types of classification were done with each of these classifiers. The dataset was classified with all attributes at first, and after that "Remove" filter was used in order to classify all instances without the first nominal attribute. SMOreg class normalizes all attributes every time before classification, and Linear Regression has option to standardize all values before the processing.
+In this project two Weka classes were used - LinearRegression and SMOreg (Support Vector Regression). As this dataset contains nominal values too, two different types of classification were done with each of these classifiers. The dataset was first classified with all attributes and the example of this method you can see below.
+
+![Alt text](/image/classify2.png?raw=true "Regression results")
+
+After that we used "Remove" filer in order to exclude first parameter ("model") from the classification and see whether the results without the car model are better or worse. 
+
+![Alt text](/image/classify1.png?raw=true "Regression results")
+
+SMOreg class normalizes all attributes every time before classification, and Linear Regression has option to standardize all values before the processing. The results of all these methods are described in the next paragraph.
 
 
 <h1> 5. Analyze </h1>

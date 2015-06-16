@@ -47,6 +47,7 @@ Detailed results of this project are provided in the file "data/results.txt" and
 
 ![Alt text](/image/price.png?raw=true "Regression results")
 
+Since all regressions were done on two different datasets, in the next part we will compare results and try to determine which dataset is more suitable for this prediction. First dataset includes car model as its first attribute, and in another case this attribute is omitted with the help of the weka remove filter. In the table below you can see compared results of all 4 evaluations.
 
 ![Alt text](/image/results.png?raw=true "Regression results")
 

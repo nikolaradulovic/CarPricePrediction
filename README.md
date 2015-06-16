@@ -53,7 +53,7 @@ Since all regressions were done on two different datasets, in the next part we w
 
 As our relative absolute errors and root relative squared errors aren't so high, we can say that all this models can be used to predict the price of a single car, based on data we used in our research. From the table we can also conclude that predictions with "model" attribute gives us a little better result that the one without it. Since the method "SVR with car model" gave us the lowest errors we can say that this method is the most suitable for purpose of this project.
 
-So just to conclude, we determine that the best method for predicting the car price is Support Vector Regression, but we can also use Linear Regression since the difference in the results of these two is not vast.  
+So just to conclude, we determine that Support Vector Regression is better method for car price prediction, but we can also use Linear Regression since the difference in the results of these two is not vast.  
 
 
 <h1> 6. References </h1>

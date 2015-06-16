@@ -43,6 +43,8 @@ In this project two weka classes that were used are LinearRegression and SMOreg 
 
 <h1> 5. Analyze </h1>
 
+![Alt text](/data/results.png?raw=true "Regression results")
+
 <h1> 6. References </h1>
 
 http://www.ibm.com/developerworks/library/os-weka1/

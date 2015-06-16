@@ -43,7 +43,7 @@ In this project two weka classes that were used are LinearRegression and SMOreg 
 
 <h1> 5. Analyze </h1>
 
-![Regression results](/data/results.png?raw=true "Regression results")
+![Alt text](/data/results.png?raw=true "Regression results")
 
 <h1> 6. References </h1>
 

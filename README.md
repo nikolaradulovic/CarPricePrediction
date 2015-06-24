@@ -4,15 +4,15 @@ The main idea of this project is to gather data about cars ads from the website 
 
 # 2. Linear Regression and SVR
 
-*Linear Regression* is popular technique often used in the process of data mining. It can be very simple with only one variable as input and one as output, but it can also have far more input variables. Basically, this model uses one or more independent variables and produces dependent variable as a result. The regression model is used to predict the value of an unknown dependent variable.
+*Linear Regression* is popular technique often used in the process of data mining. It can be very simple with only one variable as input and one as output, but it can also have far more input variables. Basically, this model uses one or more independent variables and produces dependent variable as a result. The regression model is used to predict the value of an unknown dependent variable. [1]
 
-*Support vector machine* is a supervised learning model, very similar to linear regression, that analyzes data, recognizes patters and uses these results for predictions. What differs it from simple regression is that SVR can efficiently perform a non-linear classification too.   
+*Support vector machine* is a supervised learning model, very similar to linear regression, that analyzes data, recognizes patters and uses these results for predictions. What differs it from simple regression is that SVR can efficiently perform a non-linear classification too.  
 
 In this project we use these two regression methods to determine the formula for price calculation based on other independent variables that characterize a single car.   
 
 # 3. Dataset
 
-Data used in this research is collected from the website [www.polovniautomobili.com](www.polovniautomobili.com) that is the most popular online marketplace for buying cars. For the purpose of this project, only data related to car manufacturer "Renault" is collected. But this approach can be applied to any other car manifacturer. Data is scraped from the website and stored in file "data/dataSet.txt". In total, 3608 valid car ads are collected. Ads that do not contain price (direct customer to directly contact the seller and agree on the price) are excluded. 
+Data used in this research is collected from the website [www.polovniautomobili.com](www.polovniautomobili.com) that is the most popular online marketplace for buying cars in Serbia. For the purpose of this project, only data related to car manufacturer "Renault" is collected. But this approach can be applied to any other car manifacturer. On the page or performing search a query with manufacturer set to "Renault" was issued. Data was scraped from the search results. All gathered data is stored in file "data/dataSet.txt". Ads that do not contain price (direct customer to directly contact the seller and agree on the price) are excluded. In total, 3608 valid car ads are collected.
 
 The following example displays an instance of car ad, along with detail explanation of all attributes:
 
@@ -20,7 +20,7 @@ The following example displays an instance of car ad, along with detail explanat
 Megane,136570,6499,2010,81,0,0,1,0
 ```
 
-Explanation for first car:
+Legend:
 
 - **Car model:** "Megane"
 - **Mileage:** 136570 (in kilometers)
@@ -66,7 +66,7 @@ To conclude, we determine that Support Vector Regression is better method for ca
 
 # 6. References
 
-- http://www.ibm.com/developerworks/library/os-weka1/
+[1] Michael Abernethy, "Data mining with WEKA, Part 1: Introduction and regression", 2010, link: http://www.ibm.com/developerworks/library/os-weka1/, last access: 24.06.2015.
 - http://www.cs.waikato.ac.nz/ml/weka/mooc/dataminingwithweka/slides/Class4-DataMiningWithWeka-2013.pdf
 - http://cs.adelaide.edu.au/~chhshen/teaching/ML_SVR.pdf
 - https://en.wikipedia.org/wiki/Linear_regression

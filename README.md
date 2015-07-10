@@ -67,8 +67,9 @@ To conclude, we determine that Support Vector Regression is a better method for 
 # 6. References
 
 [1] Michael Abernethy, "Data mining with WEKA, Part 1: Introduction and regression", 2010, link: http://www.ibm.com/developerworks/library/os-weka1/, last access: 24.06.2015.
-- http://www.cs.waikato.ac.nz/ml/weka/mooc/dataminingwithweka/slides/Class4-DataMiningWithWeka-2013.pdf
-- http://cs.adelaide.edu.au/~chhshen/teaching/ML_SVR.pdf
-- https://en.wikipedia.org/wiki/Linear_regression
-- https://en.wikipedia.org/wiki/Support_vector_machine
-- http://kernelsvm.tripod.com/
+[2] Ian H. Witten, "Data Mining with Weka", 2013, link: http://www.cs.waikato.ac.nz/ml/weka/mooc/dataminingwithweka/slides/Class4-DataMiningWithWeka-2013.pdf, last access: 10.07.2015.
+[3] Paul Paisitkriangkrai, "Linear Regression and Support Vector Regression", 2012, link:
+http://cs.adelaide.edu.au/~chhshen/teaching/ML_SVR.pdf, last access: 10.07.2015.
+[4] Wikipedia,  "Linear regression" link: https://en.wikipedia.org/wiki/Linear_regression, last access: 10.07.2015
+[5] Wikipedia, "Support_vector_machine", link:  https://en.wikipedia.org/wiki/Support_vector_machine, last access: 10.07.2015.
+

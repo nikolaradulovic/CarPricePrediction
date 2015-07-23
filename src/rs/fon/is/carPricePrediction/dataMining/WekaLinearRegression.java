@@ -70,7 +70,7 @@ public class WekaLinearRegression {
                 this.filteredClassifier.setFilter(mf);
                 this.filteredClassifier.buildClassifier(data);
 
-               // return filteredClassifier.toString();
+
                 Evaluation evaluation = new Evaluation(data);
                 evaluation.crossValidateModel(this.filteredClassifier,data,10,new Random());
 
@@ -85,7 +85,7 @@ public class WekaLinearRegression {
                 this.filteredClassifier.setFilter(standardize);
                 this.filteredClassifier.buildClassifier(data);
 
-                //return filteredClassifier.toString();
+
                 Evaluation evaluation = new Evaluation(data);
                 evaluation.crossValidateModel(this.filteredClassifier,data,10,new Random());
 

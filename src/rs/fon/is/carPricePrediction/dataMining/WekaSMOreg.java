@@ -32,6 +32,8 @@ public class WekaSMOreg {
 
     }
 
+
+
     public String classifyWithoutModel(Instances data) throws Exception{
 
         Remove remove = new Remove();

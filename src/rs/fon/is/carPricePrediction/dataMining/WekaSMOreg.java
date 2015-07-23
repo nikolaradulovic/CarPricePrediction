@@ -21,18 +21,18 @@ public class WekaSMOreg {
 
     }
 
-    public void classifyWithModel(Instances data) throws Exception{
+    public String classifyWithModel(Instances data) throws Exception{
         smOreg.buildClassifier(data);
         System.out.println(smOreg.toString());
 
         Evaluation evaluation = new Evaluation(data);
         evaluation.crossValidateModel(this.smOreg,data,10,new Random());
 
-        System.out.println(evaluation.toSummaryString());
+        return evaluation.toSummaryString();
 
     }
 
-    public void classifyWithoutModel(Instances data) throws Exception{
+    public String classifyWithoutModel(Instances data) throws Exception{
 
         Remove remove = new Remove();
         remove.setAttributeIndices("1");
@@ -46,7 +46,7 @@ public class WekaSMOreg {
         Evaluation evaluation = new Evaluation(data);
         evaluation.crossValidateModel(this.filteredClassifier,data,10,new Random());
 
-        System.out.println(evaluation.toSummaryString());
+        return evaluation.toSummaryString();
 
     }
 

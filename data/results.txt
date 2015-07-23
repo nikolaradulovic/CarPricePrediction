@@ -1,164 +1,36 @@
 
  Linear Regression with car model 
 
-
-Linear Regression Model
-
-Price =
-
-  -2512.653  * Model=Rapid,Safrane,Twingo,Thalia,Clio,Laguna,Espace,Kangoo,Nevada,Express,Scenic,Megane,Modus,Grand,Vel,Fluence,Koleos,Latitude,Captur +
-  -2480.53   * Model=Safrane,Twingo,Thalia,Clio,Laguna,Espace,Kangoo,Nevada,Express,Scenic,Megane,Modus,Grand,Vel,Fluence,Koleos,Latitude,Captur +
-   -802.6039 * Model=Twingo,Thalia,Clio,Laguna,Espace,Kangoo,Nevada,Express,Scenic,Megane,Modus,Grand,Vel,Fluence,Koleos,Latitude,Captur +
-   -346.1138 * Model=Thalia,Clio,Laguna,Espace,Kangoo,Nevada,Express,Scenic,Megane,Modus,Grand,Vel,Fluence,Koleos,Latitude,Captur +
-    317.2434 * Model=Clio,Laguna,Espace,Kangoo,Nevada,Express,Scenic,Megane,Modus,Grand,Vel,Fluence,Koleos,Latitude,Captur +
-    394.5222 * Model=Laguna,Espace,Kangoo,Nevada,Express,Scenic,Megane,Modus,Grand,Vel,Fluence,Koleos,Latitude,Captur +
-    475.7149 * Model=Espace,Kangoo,Nevada,Express,Scenic,Megane,Modus,Grand,Vel,Fluence,Koleos,Latitude,Captur +
-   -438.6823 * Model=Kangoo,Nevada,Express,Scenic,Megane,Modus,Grand,Vel,Fluence,Koleos,Latitude,Captur +
-   -136.5787 * Model=Megane,Modus,Grand,Vel,Fluence,Koleos,Latitude,Captur +
-    592.3039 * Model=Grand,Vel,Fluence,Koleos,Latitude,Captur +
-    873.6155 * Model=Vel,Fluence,Koleos,Latitude,Captur +
-   2785.245  * Model=Koleos,Latitude,Captur +
-   4321.4291 * Model=Latitude,Captur +
-     -0.0009 * Kilometres +
-    408.1523 * Year +
-      8.256  * HorsePower +
-    321.0483 * Gear +
--809590.9308
-
-Correlation coefficient                  0.8461
-Mean absolute error                    591.0668
-Root mean squared error                960.9013
-Relative absolute error                 49.539  %
-Root relative squared error             53.3136 %
+Correlation coefficient                  0.8455
+Mean absolute error                    590.7291
+Root mean squared error                962.5558
+Relative absolute error                 49.5289 %
+Root relative squared error             53.4109 %
 Total Number of Instances             3239     
-
 
  Linear Regression without car model 
 
-FilteredClassifier using weka.classifiers.functions.LinearRegression -S 0 -C -R 1.0E-8 on data filtered through weka.filters.unsupervised.attribute.Remove -R 1
-
-Filtered Header
-@relation RenaultDataSet-weka.filters.unsupervised.attribute.Remove-R1
-
-@attribute Kilometres numeric
-@attribute Price numeric
-@attribute Year numeric
-@attribute HorsePower numeric
-@attribute Fuel numeric
-@attribute AirCondition numeric
-@attribute NumOfDoors numeric
-@attribute Gear numeric
-
-@data
-
-
-Classifier Model
-
-Linear Regression Model
-
-Price =
-
-     -0.0011 * Kilometres +
-    413.1863 * Year +
-     12.6642 * HorsePower +
-    245.1116 * NumOfDoors +
-    352.9652 * Gear +
--825653.426 
-
-Correlation coefficient                  0.8198
-Mean absolute error                    617.4446
-Root mean squared error               1031.5379
-Relative absolute error                 51.7689 %
-Root relative squared error             57.2558 %
+Correlation coefficient                  0.819 
+Mean absolute error                    617.1532
+Root mean squared error               1033.5531
+Relative absolute error                 51.7486 %
+Root relative squared error             57.3603 %
 Total Number of Instances             3239     
 
+ SMO Regression with car model 
 
- SMO with car model 
-
-SMOreg
-
-weights (not support vectors):
- -       0.0939 * (normalized) Model=Megane
- -       0.1019 * (normalized) Model=Clio
- -       0.0921 * (normalized) Model=Laguna
- -       0.0852 * (normalized) Model=Scenic
- -       0.0975 * (normalized) Model=Modus
- -       0.0844 * (normalized) Model=Kangoo
- -       0.0669 * (normalized) Model=Grand
- -       0.103  * (normalized) Model=Twingo
- -       0.059  * (normalized) Model=Espace
- -       0.0333 * (normalized) Model=Vel
- +       0.1466 * (normalized) Model=Koleos
- -       0.004  * (normalized) Model=Fluence
- +       0.4352 * (normalized) Model=Captur
- +       0      * (normalized) Model=Express
- +       0.1801 * (normalized) Model=Fuego
- +       0.186  * (normalized) Model=Latitude
- +       0      * (normalized) Model=Nevada
- +       0.0406 * (normalized) Model=Rapid
- -       0.0513 * (normalized) Model=Safrane
- -       0.116  * (normalized) Model=Thalia
- -       0.0754 * (normalized) Kilometres
- +       0.6131 * (normalized) Year
- +       0.1165 * (normalized) HorsePower
- -       0.0005 * (normalized) Fuel
- -       0.0013 * (normalized) AirCondition
- +       0.016  * (normalized) NumOfDoors
- +       0.0044 * (normalized) Gear
- -       0.1711
-
-
-
-Number of kernel evaluations: 118692218 (67.933% cached)
-
-Correlation coefficient                  0.8352
-Mean absolute error                    568.3922
-Root mean squared error               1011.3249
-Relative absolute error                 47.6528 %
-Root relative squared error             56.1072 %
+Correlation coefficient                  0.845 
+Mean absolute error                    559.5391
+Root mean squared error                980.2594
+Relative absolute error                 46.92   %
+Root relative squared error             54.4106 %
 Total Number of Instances             3239     
 
+ SMO Regression without car model 
 
- SMO without car model 
-
-FilteredClassifier using weka.classifiers.functions.SMOreg -C 1.0 -N 0 -I "weka.classifiers.functions.supportVector.RegSMOImproved -L 0.001 -W 1 -P 1.0E-12 -T 0.001 -V" -K "weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0" on data filtered through weka.filters.unsupervised.attribute.Remove -R 1
-
-Filtered Header
-@relation RenaultDataSet-weka.filters.unsupervised.attribute.Remove-R1
-
-@attribute Kilometres numeric
-@attribute Price numeric
-@attribute Year numeric
-@attribute HorsePower numeric
-@attribute Fuel numeric
-@attribute AirCondition numeric
-@attribute NumOfDoors numeric
-@attribute Gear numeric
-
-@data
-
-
-Classifier Model
-SMOreg
-
-weights (not support vectors):
- -       0.0655 * (normalized) Kilometres
- +       0.6082 * (normalized) Year
- +       0.2975 * (normalized) HorsePower
- +       0.0002 * (normalized) Fuel
- -       0.0007 * (normalized) AirCondition
- +       0.02   * (normalized) NumOfDoors
- +       0.0117 * (normalized) Gear
- -       0.2843
-
-
-
-Number of kernel evaluations: 59745435 (61.508% cached)
-
-Correlation coefficient                  0.8206
-Mean absolute error                    590.8724
-Root mean squared error               1056.8626
-Relative absolute error                 49.5498 %
-Root relative squared error             58.6554 %
+Correlation coefficient                  0.8204
+Mean absolute error                    590.8625
+Root mean squared error               1057.2086
+Relative absolute error                 49.5219 %
+Root relative squared error             58.6725 %
 Total Number of Instances             3239     
-

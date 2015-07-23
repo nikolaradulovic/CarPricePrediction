@@ -25,19 +25,19 @@ public class WekaLinearRegression {
 
         }
 
-        public void classifyWithModel(Instances data) throws Exception{
+        public String classifyWithModel(Instances data) throws Exception{
                 linearRegression.buildClassifier(data);
                 System.out.println(linearRegression.toString());
 
                 Evaluation evaluation = new Evaluation(data);
                 evaluation.crossValidateModel(linearRegression,data,10,new Random());
 
-                System.out.println(evaluation.toSummaryString());
+                return evaluation.toSummaryString();
 
 
         }
 
-        public void classifyWithoutModel(Instances data) throws Exception{
+        public String classifyWithoutModel(Instances data) throws Exception{
                 Remove remove = new Remove();
                 remove.setAttributeIndices("1");
 
@@ -50,12 +50,12 @@ public class WekaLinearRegression {
                 Evaluation evaluation = new Evaluation(data);
                 evaluation.crossValidateModel(this.filteredClassifier,data,10,new Random());
 
-                System.out.println(evaluation.toSummaryString());
+                return evaluation.toSummaryString();
 
         }
 
 
-        public void classifyWithoutModelStandardized(Instances data) throws Exception{
+        public String classifyWithoutModelStandardized(Instances data) throws Exception{
 
                 Standardize standardize = buildStandardizeFilter(data);
                 Remove remove = new Remove();
@@ -69,11 +69,15 @@ public class WekaLinearRegression {
                 this.filteredClassifier.setClassifier(linearRegression);
                 this.filteredClassifier.setFilter(mf);
                 this.filteredClassifier.buildClassifier(data);
-                System.out.println(filteredClassifier.toString());
 
+               // return filteredClassifier.toString();
+                Evaluation evaluation = new Evaluation(data);
+                evaluation.crossValidateModel(this.filteredClassifier,data,10,new Random());
+
+                return evaluation.toSummaryString();
         }
 
-        public void classifyWithModelStandardizatied(Instances data) throws Exception {
+        public String classifyWithModelStandardizatied(Instances data) throws Exception {
                 Standardize standardize = buildStandardizeFilter(data);
 
                 this.filteredClassifier = new FilteredClassifier();
@@ -81,8 +85,11 @@ public class WekaLinearRegression {
                 this.filteredClassifier.setFilter(standardize);
                 this.filteredClassifier.buildClassifier(data);
 
-                System.out.println(filteredClassifier.toString());
+                //return filteredClassifier.toString();
+                Evaluation evaluation = new Evaluation(data);
+                evaluation.crossValidateModel(this.filteredClassifier,data,10,new Random());
 
+                return evaluation.toSummaryString();
 
         }
 

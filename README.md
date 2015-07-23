@@ -1,69 +1,75 @@
-<h1> 1. About the project </h1>
+# 1. About the project
 
-The main idea of this project is to get data about used cars from web site www.polovniautomobili.com and use that information to predict the price for a specific car. The application uses 2 different types of predictions, based on current car prices on the market and characteristics of the car. Methods used for classification are Linear Regression and Support Vector Regression, and results of this process are later compared in order to find out which method is more suitable for this prediction.
+The main idea of this project is to gather data about car ads from the website [www.polovniautomobili.com](www.polovniautomobili.com) and use that data to predict price for a specific car. The project uses two different types of prediction models based on gathered car prices on the market and characteristics of a car. Methods used for prediction are *Linear Regression* and *Support Vector Regression (SVR)*. Results of the two prediction models are compared in order to find out which method is more suitable for this type of prediction and what car features are relevant for prediction.
 
-<h1> 2. Linear Regression and SVR </h1>
+# 2. Linear Regression and SVR
 
-Linear Regression is a famous technique often used in the process of data mining. It can be very simple with only one variable as input and one as output, but of course it can have far more input variables. Basically, all this models have one or more independent variables which together produce dependent variable as a result. The regression model is used to predict the value of an unknown dependent variable.
+*Linear Regression* is a popular technique often used in the process of data mining. It can be very simple with only one variable as input and one as output, but it can also have far more input variables. Basically, this model uses one or more independent variables and produces dependent variable as a result. The regression model is used to predict the value of an unknown dependent variable. [1]
 
-Support vector machine is a supervised learning model, very similar to linear regression, that analyzes data, recognizes patters and uses these results for later predictions. What differs it from simple regression is that SVR can efficiently perform a non-linear classification too.   
+*Support vector machine* is a supervised learning model, very similar to linear regression, that analyzes data, recognizes patters and uses these results for predictions. It differs from simple regression in the abality to efficiently perform a non-linear classification too.  
 
-In this project we use these two regression methods to determine the formula for price calculation based on other independent variables that characterize a single car.   
+In this project both regression methods are used to determine the formula for price calculation based on other independent variables of a car.   
 
-<h1> 3. Dataset </h1>
+# 3. Dataset
 
-Data used in this research is collected from web site www.polovniautomobili.com. For the purpose of this assignment, all data is about french car manufacturer "Renault", currently selling on the Serbian market, but of course it can include any other car type. This application uses the Jsoup library for Java, which can easily scrape all necessary data from HTML site, in this case different specifications for a large number of selling vehicles. All data are stored in in "dataSet.txt" file located in folder "data" on project's root. Our search gave 3608 different car instances, which are valid and can be used later for regression. In the next example, you can find a couple of instances with detail explanation for all their attributes:
+Data used in this research is collected from the website [www.polovniautomobili.com](www.polovniautomobili.com) that is the most popular online marketplace for buying cars in Serbia. For the purpose of this project, only data related to car manufacturer "Renault" is collected, but this approach can be applied to any other car manifacturer. On the page for performing search query with manufacturer set to "Renault" was issued. Data was scraped from the search results. All gathered data is stored in file ["data/dataSet.txt"](https://github.com/nikolaradulovic/CarPricePrediction/blob/master/data/dataSet.txt). Ads that do not contain price (ads that direct customer to directly contact the seller and agree on the price) are excluded. In total, 3608 valid car ads are collected.
 
-1. Megane,136570,6499,2010,81,0,0,1,0
-2. Clio,168000,1850,2002,60,0,1,0,0
-3. Megane,137000,3500,2003,88,0,1,1,0
-4. Clio,156000,2100,2002,43,0,1,0,0
-5. Laguna,180000,1950,2002,88,1,1,1,0
+The following example displays an instance of a car ad, along with detailed explanation of all attributes:
 
-Explanation for first car:
+```
+Megane,136570,6499,2010,81,0,0,1,0
+```
 
-Car model - "Megane" <br>
-Mileage- 136570km <br>
-Price - 6499 (Euros) <br>
-Year of production- 2010 <br>
-Horsepower- 81 <br>
-Fuel- 0 (0-Diesel, 1-Gas) <br>
-Air conditioner- 0 (0-Manuel, 1-Automatic) <br>
-Door count- 1 (0- 2/3, 1- 4/5) <br>
-Gear 0 (0-Manuel, 1-Automatic) <br>
+Legend:
 
-All this car attributes are used to predict price of a single car, based on current market prices.
+- **Car model:** "Megane"
+- **Mileage:** 136570 (in kilometers)
+- **Price:** 6499 (Euros)
+- **Year of production:** 2010
+- **Horsepower:** 81
+- **Fuel:** 0 (0-Diesel, 1-Gas)
+- **Air condition:** 0 (0-Manuel, 1-Automatic)
+- **Doors:** 1 (0- 2/3, 1- 4/5)
+- **Gear:** 0 (0-Manual, 1-Automatic)
 
-<h1> 4. Technical realization </h1>
+# 4. Technical realization
 
-This project uses Weka library for Java. Weka is a collection of machine learning algorithms for data mining, that was founded in Waikato University of New Zeland. All these algorithms can be used directly from code by importing "weka. jar" file or through the graphical interface called Weka Explorer. Weka contains tools for data preprocessing, classification, regression, clustering and visualization.
+This project uses [Weka library](http://www.cs.waikato.ac.nz/ml/weka/). Weka is a collection of machine learning algorithms for data mining, that was founded at Waikato University of New Zeland. All these algorithms can be used directly from code by importing *weka.jar* file or through the graphical interface called *Weka Explorer*. Weka contains tools for data preprocessing, classification, regression, clustering and visualization.
 
-In this project two Weka classes were used - LinearRegression and SMOreg (Support Vector Regression). As this dataset contains nominal values too, two different types of classification were done with each of these classifiers. The dataset was classified with all attributes at first, and after that "Remove" filter was used in order to classify all instances without the first nominal attribute. SMOreg class normalizes all attributes every time before classification, and Linear Regression has option to standardize all values before the processing.
+In this project two Weka classes were used: *LinearRegression* and *SMOreg* for Support Vector Regression. As this dataset contains nominal values too, two different types of classifications were performed with both classifiers. The dataset was first classified with all attributes and the example of this method can be found below.
 
+![Alt text](/image/classify2.png?raw=true "Regression results")
 
-<h1> 5. Analyze </h1>
+After that, "Remove" filer was used in order to exclude the first parameter ("model") from the classification to see whether the results without the car model are better or worse. 
 
-Detailed results of this project are provided in the file "data/results.txt" and here we will provide an explanation for that. In the first part of this paragraph you will see common characteristics of all 4 regression methods. Attributes which regression results listed as relevant for price prediction in all cases are: kilometers, year, horsepower and gear. First attribute, kilometers, has negative influence on price, which means the more kilometers one car had travelled, the lower its price will be. All other 3 attributes have positive coefficients before it, which clearly means that the higher they are, higher the car price will be. Concretely, for year parameter, this means the younger vehicle is, the higher value for the year of production it has. Similar goes for horsepower and gear parameters too. 
+![Alt text](/image/classify1.png?raw=true "Regression results")
+
+SMOreg class normalizes all attributes every time before classification, and Linear Regression has an option to standardize all values before the processing. The results of all these methods are described in the next paragraph.
+
+# 5. Analysis
+
+Detailed results of this analysis are provided in the file ["data/results.txt"](https://github.com/nikolaradulovic/CarPricePrediction/blob/master/data/results.txt) and here will be provided an explanation. 
+
+In the first part of the analysis result you will see common characteristics of all 4 regression methods. Attributes that are listed as relevant for price prediction in all cases are: kilometers, year, horsepower and gear. First attribute, kilometers, has negative influence on price, which means the more kilometers one car had travelled, the lower its price will be. All other 3 attributes have positive coefficients, which clearly means that the higher they are, higher the car price will be.
 
 ![Alt text](/image/price.png?raw=true "Regression results")
 
-Since all regressions were done on two different datasets, in the next part we will compare results and try to determine which dataset is more suitable for this prediction. First dataset includes car model as its first attribute, and in another case this attribute is omitted with the help of the weka remove filter. In the table below you can see compared results of all 4 evaluations.
+As Linear Regression doesn't include air-condition, fuel and gear in a price formula, we can say that these 3 attributes are not relevant for that method of analysis. But SVR does include these 3, so they are certainly relevant for that type of analysis.
+
+Since both regression methods were performed on two different datasets, in the next section we will compare the results of these four analysis and try to determine which dataset is more suitable for this type of prediction. First dataset includes car model as its first attribute, and the second dataset is without the model attribute. The table displays the results of all 4 evaluations.
 
 ![Alt text](/image/results.png?raw=true "Regression results")
 
-As our relative absolute errors and root relative squared errors aren't so high, we can say that all this models can be used to predict the price of a single car, based on data we used in our research. From the table we can also conclude that predictions with "model" attribute gives us a little better result that the one without it. Since the method "SVR with car model" gave us the lowest errors we can say that this method is the most suitable for purpose of this project.
+As relative absolute errors and root relative squared errors aren't so high, it can be stated that all these models can be used to predict the price of a car. From the table can be also concluded that predictions with "model" attribute gives us a little better result that ones without it. Since the method "SVR with car model" gave the lowest errors, we can say that this method is the most suitable for purpose of this project.
 
-So just to conclude, we determine that Support Vector Regression is better method for car price prediction, but we can also use Linear Regression since the difference in the results of these two is not vast.  
+To conclude, we determine that Support Vector Regression is a better method for car price prediction, but Linear Regression can also be used since the difference in the results of these two is minor.  
 
+# 6. References
 
-<h1> 6. References </h1>
-
-http://www.ibm.com/developerworks/library/os-weka1/
-http://www.cs.waikato.ac.nz/ml/weka/mooc/dataminingwithweka/slides/Class4-DataMiningWithWeka-2013.pdf
-http://cs.adelaide.edu.au/~chhshen/teaching/ML_SVR.pdf
-https://en.wikipedia.org/wiki/Linear_regression
-https://en.wikipedia.org/wiki/Support_vector_machine
-http://kernelsvm.tripod.com/
-
-
+[1] Michael Abernethy, "Data mining with WEKA, Part 1: Introduction and regression", 2010, link: http://www.ibm.com/developerworks/library/os-weka1/, last access: 24.06.2015. <br>
+[2] Ian H. Witten, "Data Mining with Weka", 2013, link: http://www.cs.waikato.ac.nz/ml/weka/mooc/dataminingwithweka/slides/Class4-DataMiningWithWeka-2013.pdf, last access: 10.07.2015. <br>
+[3] Paul Paisitkriangkrai, "Linear Regression and Support Vector Regression", 2012, link:
+http://cs.adelaide.edu.au/~chhshen/teaching/ML_SVR.pdf, last access: 10.07.2015. <br>
+[4] Wikipedia,  "Linear regression" link: https://en.wikipedia.org/wiki/Linear_regression, last access: 10.07.2015 <br>
+[5] Wikipedia, "Support_vector_machine", link:  https://en.wikipedia.org/wiki/Support_vector_machine, last access: 10.07.2015. 
 
